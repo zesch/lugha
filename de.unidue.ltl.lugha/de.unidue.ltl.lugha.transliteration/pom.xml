@@ -6,4 +6,27 @@
     <version>0.1.0-SNAPSHOT</version>
   </parent>
   <artifactId>de.unidue.ltl.lugha.transliteration</artifactId>
+  
+ <dependencies> 
+  	<dependency>
+		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+		<artifactId>
+			de.tudarmstadt.ukp.dkpro.core.ngrams-asl
+		</artifactId>
+		<version>1.7.0</version>
+	</dependency>
+	<dependency>
+		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+		<artifactId>
+			de.tudarmstadt.ukp.dkpro.core.stanfordnlp-gpl
+		</artifactId>
+		<version>1.7.0</version>
+	</dependency>
+	<dependency>
+		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+		<artifactId>de.tudarmstadt.ukp.dkpro.core.tokit-asl</artifactId>
+		<version>1.7.0</version>
+	</dependency>
+</dependencies>
+  
 </project>
