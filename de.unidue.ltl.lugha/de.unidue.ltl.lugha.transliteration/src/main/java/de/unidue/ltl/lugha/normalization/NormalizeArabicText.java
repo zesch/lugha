@@ -19,7 +19,7 @@ import de.tudarmstadt.ukp.dkpro.core.ngrams.util.CharacterNGramStringIterable;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.tokit.BreakIteratorSegmenter;
 
-public class NormalizeArText {
+public class NormalizeArabicText {
 
 	public static void main(String[] args)
 			throws AnalysisEngineProcessException, ResourceInitializationException
