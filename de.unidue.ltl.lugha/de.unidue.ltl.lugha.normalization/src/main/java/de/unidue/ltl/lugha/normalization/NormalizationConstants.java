@@ -2,6 +2,7 @@ package de.unidue.ltl.lugha.normalization;
 
 public class NormalizationConstants {
 	
+	// TODO why is everything char except TATWEEL?
 	public static final char ALIF = '\u0627';
 	public static final char ALIF_HAMZA_ABOVE = '\u0623';
 	public static final char ALIF_HAMZA_BELOW = '\u0625';

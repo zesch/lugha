@@ -5,7 +5,5 @@
     <artifactId>de.unidue.ltl.lugha</artifactId>
     <version>0.1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>de.unidue.ltl.lugha.transliteration</artifactId>
-  
-  
+  <artifactId>de.unidue.ltl.lugha.core</artifactId>
 </project>

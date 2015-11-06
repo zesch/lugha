@@ -1,23 +1,7 @@
 package de.unidue.ltl.lugha.normalization;
 
-import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngine;
-import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
-
 import java.util.ArrayList;
 import java.util.Collection;
-
-import org.apache.uima.analysis_engine.AnalysisEngine;
-import org.apache.uima.analysis_engine.AnalysisEngineDescription;
-import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
-import org.apache.uima.fit.util.JCasUtil;
-import org.apache.uima.jcas.JCas;
-import org.apache.uima.resource.ResourceInitializationException;
-
-
-import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
-import de.tudarmstadt.ukp.dkpro.core.ngrams.util.CharacterNGramStringIterable;
-import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
-import de.tudarmstadt.ukp.dkpro.core.tokit.BreakIteratorSegmenter;
 
 public class NormalizeArabicText {
 
@@ -94,16 +78,11 @@ public class NormalizeArabicText {
 
 	
 	//----------------------------Modified code--------------------------------------
-	public static ArrayList<String> discradExtraWihteSpaces(String currentText) {
+	// TODO what exactly should this method actually do?
+	public static String discarddExtraWhiteSpaces(String text) {
 		
-		ArrayList<String> textList = new ArrayList<String>();
-		
-		StringBuffer word = new StringBuffer();
-		
-		currentText = currentText + " ";
-		
-		for (int i = 0; i < currentText.length(); i++) {
-
+		StringBuffer newString = new StringBuffer();
+		for (int i = 0; i < text.length(); i++) {
 			// if the character is not a space, add it to a word
 			if (( Character.isWhitespace(currentText.charAt(i)) == false)) {
 				word.append(currentText.charAt(i));
