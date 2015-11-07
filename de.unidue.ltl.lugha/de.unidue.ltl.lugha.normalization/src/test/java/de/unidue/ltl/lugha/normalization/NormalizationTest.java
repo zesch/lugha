@@ -8,8 +8,15 @@ public class NormalizationTest {
 
 	@Test
 	public void discardWhitespaceTest() {
-		String tatweel = "تطويـــــــــــــــــــــــــــــــــــل         هكـــــــــذا";
-		String normalized = NormalizeArabicText.discarddExtraWhiteSpaces(tatweel);
-		assertEquals("تطويـــــــــــــــــــــــــــــــــــل هكـــــــــذا", normalized);
+		
+		String withTatweel = "تطويـــــــــــــــــــــــــــــــــــل         هكـــــــــذا";
+		
+//		String withoutExtraSpaces = NormalizeArabicText.discardExtraWhiteSpaces(withTatweel);		
+//		assertEquals("تطويـــــــــــــــــــــــــــــــــــل هكـــــــــذا", withoutExtraSpaces);
+		
+		String normalized = TextNormalizer.normalizeText(withTatweel);
+		assertEquals("تطويل هكذا", normalized);
+
+
 	}
 }
