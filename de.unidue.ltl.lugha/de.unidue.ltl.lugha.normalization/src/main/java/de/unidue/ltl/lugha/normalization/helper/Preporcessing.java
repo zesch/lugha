@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Preporcessing {
 
-	private String discardExtraWhiteSpaces(String currentText) {
+	public static String discardExtraWhiteSpaces(String currentText) {
 		
 		ArrayList<String> tokens = new ArrayList<String>();
 		
