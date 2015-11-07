@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class Preporcessing {
 
-	private String removeExtraSpaces(String currentText) {
+	private String discardExtraWhiteSpaces(String currentText) {
 		
 		ArrayList<String> tokens = new ArrayList<String>();
 		
 		StringBuffer word = new StringBuffer();
 
 		currentText = currentText + " ";
+		
 		for (int i = 0; i < currentText.length(); i++) {
 
 			// if the character is not a space, add it to a word
