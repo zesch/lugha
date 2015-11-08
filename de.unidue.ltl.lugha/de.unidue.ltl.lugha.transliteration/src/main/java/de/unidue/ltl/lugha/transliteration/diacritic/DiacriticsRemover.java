@@ -7,6 +7,14 @@ import de.unidue.ltl.lugha.normalization.helper.Preporcessing;
 
 public class DiacriticsRemover {
 
+	/**
+	 * Description of what kinds of DiacriticsRemover is performed
+	 * 
+	 * @param text
+	 *   The input text:(َبِّ أَعِنِّي وَلَا تُعِنْ عَلَيَّ وَانْصُرْنِي وَلَا تَنْصُرْ عَلَيَّ)
+	 *            
+	 * @return The without diacritics text:(رب أعني ولا تعن علي وانصرني ولا تنصر علي)
+	 */
 	public static String removeDiacritics(String currentText) {
 
 		
