@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import de.unidue.ltl.lugha.normalization.helper.Preporcessing;
+
 public class NormalizationTest {
 
 	@Test
@@ -11,12 +13,9 @@ public class NormalizationTest {
 		
 		String withTatweel = "تطويـــــــــــــــــــــــــــــــــــل         هكـــــــــذا";
 		
-//		String withoutExtraSpaces = NormalizeArabicText.discardExtraWhiteSpaces(withTatweel);		
-//		assertEquals("تطويـــــــــــــــــــــــــــــــــــل هكـــــــــذا", withoutExtraSpaces);
+		String withoutExtraSpaces = Preporcessing.discardExtraWhiteSpaces(withTatweel);		
+		assertEquals("تطويـــــــــــــــــــــــــــــــــــل هكـــــــــذا", withoutExtraSpaces);
 		
-		String normalized = TextNormalizer.normalizeText(withTatweel);
-		assertEquals("تطويل هكذا", normalized);
-
 
 	}
 }
