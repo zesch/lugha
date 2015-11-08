@@ -8,4 +8,14 @@
   <artifactId>de.unidue.ltl.lugha.transliteration</artifactId>
   
   
+  <dependencies>
+  	<dependency>
+  		<groupId>de.unidue.ltl.lugha</groupId>
+  		<artifactId>de.unidue.ltl.lugha.normalization</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>de.unidue.ltl.lugha</groupId>
+  		<artifactId>de.unidue.ltl.lugha.core</artifactId>
+  	</dependency>
+  </dependencies>
 </project>
