@@ -1,4 +1,4 @@
-package de.unidue.ltl.lugha.transliteration;
+package de.unidue.ltl.lugha.transliteration.diacritic;
 
 import static org.junit.Assert.assertEquals;
 
