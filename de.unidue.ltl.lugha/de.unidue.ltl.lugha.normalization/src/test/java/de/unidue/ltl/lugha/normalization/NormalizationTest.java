@@ -1,21 +1,18 @@
 package de.unidue.ltl.lugha.normalization;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-
-import de.unidue.ltl.lugha.normalization.helper.Preporcessing;
 
 public class NormalizationTest {
 
 	@Test
-	public void discardWhitespaceTest() {
+	public void normalizeTatweelTest() {
 		
 		String withTatweel = "تطويـــــــــــــــــــــــــــــــــــل         هكـــــــــذا";
-		
-		String withoutExtraSpaces = Preporcessing.discardExtraWhiteSpaces(withTatweel);		
-		assertEquals("تطويـــــــــــــــــــــــــــــــــــل هكـــــــــذا", withoutExtraSpaces);
-		
+				
+		String normalized = TextNormalizer.normalizeText(withTatweel);
+		assertEquals("تطويل هكذا", normalized);
 
 	}
 }

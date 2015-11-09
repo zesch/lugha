@@ -10,15 +10,9 @@ public class DiacriticsRemoverTest {
 
 	@Test
 	public void diacriticsRemoverTest() {
-		
-		String withoutDiacritics = "";
-		
-//    	String sublimation = "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ";
-//    	withoutDiacritics = DiacriticsRemover.removeDiacritics(sublimation);
-//    	assertEquals("اللهم صل على محمد، وعلى آل محمد", withoutDiacritics);
-    	
-    	String duaa = "رَبِّ أَعِنِّي وَلَا تُعِنْ عَلَيَّ وَانْصُرْنِي وَلَا تَنْصُرْ عَلَيَّ";
-		withoutDiacritics = DiacriticsRemover.removeDiacritics(duaa);		
+		  	
+    	String withDiacritics = "رَبِّ أَعِنِّي وَلَا تُعِنْ عَلَيَّ وَانْصُرْنِي وَلَا تَنْصُرْ عَلَيَّ";
+    	String withoutDiacritics = DiacriticsRemover.removeDiacritics(withDiacritics);		
 		assertEquals("رب أعني ولا تعن علي وانصرني ولا تنصر علي", withoutDiacritics);
 
 	}

@@ -1,7 +1,9 @@
 package de.unidue.ltl.lugha.normalization;
 
-import de.unidue.ltl.lugha.normalization.helper.Preporcessing;
 
+/**
+ * TODO add documentation
+ */
 public class TextNormalizer {
 
 	/**
@@ -14,14 +16,32 @@ public class TextNormalizer {
 	 */
 
 	public static String normalizeText(String text) {
-		// FIXME include several steps for normalization here
 
-		String withoutExtraSpaces = Preporcessing
-				.discardExtraWhiteSpaces(text);
+		String withoutExtraSpaces = normalizeWhitespace(text);
 
-		String withoutTatweel = NormalizeArabicText
-				.normalizeTatweel(withoutExtraSpaces);
+		String withoutTatweel = normalizeTatweel(withoutExtraSpaces);
 
 		return withoutTatweel;
+	}
+
+	/**
+	 * TODO add documentation
+	 * @param text
+	 * @return
+	 */
+	public static String normalizeTatweel(String text) 
+	{		
+		return text.replaceAll(NormalizationConstants.TATWEEL, "");		
+	}
+	
+	/**
+	 * TODO add documentation
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public static String normalizeWhitespace(String text)
+	{
+		return text.replaceAll("\\s+", " ");
 	}
 }
