@@ -7,15 +7,6 @@ public class BuckwalterTransliterator
 {
 	
 
-	public static void main(String[] args) {
-		
-		String text = "اعطى الولد البنت كتابا ساءل امْرَأَتِي";
-		
-		Transliterator trans = new BuckwalterTransliterator();
-		
-		System.out.println(trans.getLatinString(text));
-	}
-
 	public  String getLatinString(String arabicString) {
 		
 		String normalizedText = TextNormalizer.normalizeText(arabicString);
