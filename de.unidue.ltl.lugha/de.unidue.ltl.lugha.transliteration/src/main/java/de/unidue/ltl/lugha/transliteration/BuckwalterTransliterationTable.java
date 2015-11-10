@@ -79,15 +79,4 @@ public class BuckwalterTransliterationTable {
 		unicodeMap.put(unicode, map);
 	}
 	
-	public static void main(String[] args) {
-		
-		String text = "اعطى الولد البنت كتابا، ساءل امْرَأَتِي";
-		
-		String str1 = "\u064A";
-		String str2 ="\u0650";
-		
-		System.out.println(unicodeMap.get(str1));
-		System.out.println(unicodeMap.get(str2));
-	}
-	
 }
