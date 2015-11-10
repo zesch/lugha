@@ -1,5 +1,6 @@
 package de.unidue.ltl.lugha.transliteration;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,73 +11,68 @@ import java.util.Map;
  */
 public class BuckwalterTransliterationTable {
 
-	public static final Map<String, String> unicodeMap = new HashMap<String, String>();
-
-	static {
-		
-		
-		addMapping("\u0621", "\'");
-		addMapping("\u0622", "|");
-		addMapping("\u0623", ">");
-		addMapping("\u0624", "&");
-		addMapping("\u0625", "<");
-		addMapping("\u0626", "}");
-		addMapping("\u0627", "A");
-		addMapping("\u0628", "b");
-		addMapping("\u0629", "p");
-		
-		//addMapping("\u0629", "");
-		
-		addMapping("\u062A", "t");
-		addMapping("\u062B", "v");
-		addMapping("\u062C", "j");
-		addMapping("\u062D", "H");
-		addMapping("\u062E", "x");
-		addMapping("\u062F", "d");
-		
-		addMapping("\u0630","*");
-		addMapping("\u0631", "r");
-		addMapping("\u0632", "z");
-		addMapping("\u0633", "s");
-		addMapping("\u0634", "$");
-		addMapping("\u0635", "S");		
-		addMapping("\u0636", "D");
-		addMapping("\u0637", "T");
-		addMapping("\u0638", "Z");
-		addMapping("\u0639", "E");
-
-		addMapping("\u063A", "g");
-		
-		addMapping("\u0640", "_");
-		addMapping("\u0641", "f");
-		addMapping("\u0642", "q");
-		addMapping("\u0643", "k");
-		addMapping("\u0644", "l");
-		
-		addMapping("\u0645", "m");
-		addMapping("\u0646", "n");
-		addMapping("\u0647", "h");
-		addMapping("\u0648", "w");
-		addMapping("\u0649", "Y");
-		
-		addMapping("\u064A", "y");
-		addMapping("\u064B", "F");
-		addMapping("\u064C", "N");
-		addMapping("\u064D", "K");
-		addMapping("\u064E", "a");
-		addMapping("\u064F", "u");
-		
-		addMapping("\u0650", "i");
-		addMapping("\u0651", "~");
-		addMapping("\u0652", "o");
-		addMapping("\u0670", "`");
-		addMapping("\u0671", "{");
-		
-	}
-
-	public static void addMapping(String unicode, String map){
-		
-		unicodeMap.put(unicode, map);
-	}
+	public static final Map<String, String> unicodeMap;
 	
+	static {
+		// TODO mapping should work in both directions - use different map implementation
+		Map<String,String> map = new HashMap<String, String>();
+		map.put("\u0621", "\'");
+		map.put("\u0622", "|");
+		map.put("\u0623", ">");
+		map.put("\u0624", "&");
+		map.put("\u0625", "<");
+		map.put("\u0626", "}");
+		map.put("\u0627", "A");
+		map.put("\u0628", "b");
+		map.put("\u0629", "p");
+		
+		//map.put("\u0629", "");
+		
+		map.put("\u062A", "t");
+		map.put("\u062B", "v");
+		map.put("\u062C", "j");
+		map.put("\u062D", "H");
+		map.put("\u062E", "x");
+		map.put("\u062F", "d");
+		
+		map.put("\u0630","*");
+		map.put("\u0631", "r");
+		map.put("\u0632", "z");
+		map.put("\u0633", "s");
+		map.put("\u0634", "$");
+		map.put("\u0635", "S");		
+		map.put("\u0636", "D");
+		map.put("\u0637", "T");
+		map.put("\u0638", "Z");
+		map.put("\u0639", "E");
+
+		map.put("\u063A", "g");
+		
+		map.put("\u0640", "_");
+		map.put("\u0641", "f");
+		map.put("\u0642", "q");
+		map.put("\u0643", "k");
+		map.put("\u0644", "l");
+		
+		map.put("\u0645", "m");
+		map.put("\u0646", "n");
+		map.put("\u0647", "h");
+		map.put("\u0648", "w");
+		map.put("\u0649", "Y");
+		
+		map.put("\u064A", "y");
+		map.put("\u064B", "F");
+		map.put("\u064C", "N");
+		map.put("\u064D", "K");
+		map.put("\u064E", "a");
+		map.put("\u064F", "u");
+		
+		map.put("\u0650", "i");
+		map.put("\u0651", "~");
+		map.put("\u0652", "o");
+		map.put("\u0670", "`");
+		map.put("\u0671", "{");
+		
+        unicodeMap = Collections.unmodifiableMap(map);
+	}
 }

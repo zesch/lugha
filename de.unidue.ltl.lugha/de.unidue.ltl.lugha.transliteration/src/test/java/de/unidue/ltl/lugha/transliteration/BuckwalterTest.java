@@ -9,11 +9,11 @@ public class BuckwalterTest {
 	@Test
 	public void buckwalterTest() {
 		
-		Transliterator trans = new BuckwalterTransliterator();
+		Transliterator buckwalter = new BuckwalterTransliterator();
 		
 		String text = "اعطى الولد البنت كتابا ساءل امْرَأَتِي";
 		
-		String latin = trans.getLatinString(text);
+		String latin = buckwalter.getLatinString(text);
 		
 		assertEquals("AETY Alwld Albnt ktAbA sA'l Amora>atiy", latin);
 	}
