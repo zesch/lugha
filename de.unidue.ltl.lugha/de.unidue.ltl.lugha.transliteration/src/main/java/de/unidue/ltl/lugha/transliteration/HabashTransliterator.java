@@ -13,14 +13,14 @@ public class HabashTransliterator
 	{
 
 		// I would not call normalize implicitly here
-		String normalizedText = TextNormalizer.normalizeText(arabicString);
-
+		String normalizedArabicText = TextNormalizer.normalizeText(arabicString);
+		
 		StringBuilder sb = new StringBuilder();
 
-		for (int i = 0; i < normalizedText.length(); i++)
+		for (int i = 0; i < normalizedArabicText.length(); i++)
 		{
 
-			String unigram = arabicString.substring(i, i + 1);
+			String unigram = normalizedArabicText.substring(i, i + 1);
 			if (HabashTransliterationTable.unicodeMap.containsKey(unigram))
 			{
 				sb.append(HabashTransliterationTable.unicodeMap.get(unigram));
