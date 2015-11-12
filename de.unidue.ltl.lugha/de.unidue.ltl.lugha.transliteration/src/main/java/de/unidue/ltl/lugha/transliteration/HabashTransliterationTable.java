@@ -22,35 +22,35 @@ public class HabashTransliterationTable {
 		BidiMap map = new  DualHashBidiMap();;
 		
 		map.put("\u0621", "\'");
-		map.put("\u0622", "0x100");//Latin capital letter a with macron: Ā
-		map.put("\u0623", "0xc2");//Latin capital letter a with caron: Ǎ
-		map.put("\u0624", "0x175");//Latin small letter w with circumflex: ŵ
-		map.put("\u0625", "0x1cd");//Latin capital letter a with caron: Ǎ
-		map.put("\u0626", "0x177");//Latin small letter y with circumflex: ŷ
+		map.put("\u0622", "Ā");//Latin capital letter a with macron: Ā=0x100
+		map.put("\u0623", "Â");//Latin capital letter a with circumflex: Â=0xc2
+		map.put("\u0624", "ŵ");//Latin small letter w with circumflex: ŵ=0x175
+		map.put("\u0625", "Ǎ");//Latin capital letter a with caron: Ǎ=0x1cd
+		map.put("\u0626", "ŷ");//Latin small letter y with circumflex: ŷ=0x177
 		map.put("\u0627", "A");
 		map.put("\u0628", "b");
-		map.put("\u0629", "0x127");//Latin small letter h with stroke: ħ
+		map.put("\u0629", "ħ");//Latin small letter h with stroke: ħ=0x127
 		
 		map.put("\u062A", "t");
-		map.put("\u062B", "0x3b8");//Greek small letter theta: θ
+		map.put("\u062B", "θ");//Greek small letter theta: θ=0x3b8
 		map.put("\u062C", "j");
 		map.put("\u062D", "H");
 		map.put("\u062E", "x");
 		map.put("\u062F", "d");
 		
-		map.put("\u0630","0xf0");//Latin small letter eth: ð
+		map.put("\u0630","ð");//Latin small letter eth: ð=0xf0
 		map.put("\u0631", "r");
 		map.put("\u0632", "z");
 		map.put("\u0633", "s");
-		map.put("\u0634", "0x161");//Latin small letter s with caron: š
+		map.put("\u0634", "š");//Latin small letter s with caron: š=0x161
 		map.put("\u0635", "S");		
 		map.put("\u0636", "D");
 		map.put("\u0637", "T");
-		map.put("\u0638", "0x10e");//Latin capital letter d with caron: Ď
+		map.put("\u0638", "Ď");//Latin capital letter d with caron: Ď=0x10e
 		
 		//!!!!!!!!!!!!!!!!!!!!!!!!!
-		map.put("\u0639", "0x3c2");//Greek small letter final sigma: ς
-		map.put("\u063A", "0x1d6c4");//Mathematical bold small gamma: 𝛄
+		map.put("\u0639", "ς");//Greek small letter final sigma: ς=0x3c2
+		map.put("\u063A", "𝛄");//Mathematical bold small gamma: 𝛄=0x1d6c4
 		
 		map.put("\u0641", "f");
 		map.put("\u0642", "q");
@@ -61,12 +61,12 @@ public class HabashTransliterationTable {
 		map.put("\u0646", "n");
 		map.put("\u0647", "h");
 		map.put("\u0648", "w");
-		map.put("\u0649", "0xfd");//Latin small letter y with acute: ý
+		map.put("\u0649", "ý");//Latin small letter y with acute: ý=0xfd
 		
 		map.put("\u064A", "y");
-		map.put("\u064B", "0xe3");//Latin small letter a with tilde: ã
-		map.put("\u064C", "0x169");//Latin small letter u with tilde: ũ
-		map.put("\u064D", "0x129");//Latin small letter i with tilde: ĩ
+		map.put("\u064B", "ã");//Latin small letter a with tilde: ã=0xe3
+		map.put("\u064C", "ũ");//Latin small letter u with tilde: ũ=0x169
+		map.put("\u064D", "ĩ");//Latin small letter i with tilde: ĩ=0x129
 		
 		map.put("\u064E", "a");		
 		map.put("\u064F", "u");		
