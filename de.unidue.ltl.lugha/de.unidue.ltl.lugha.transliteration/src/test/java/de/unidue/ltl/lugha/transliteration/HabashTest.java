@@ -11,11 +11,22 @@ public class HabashTest {
 		
 		Transliterator habash = new HabashTransliterator();
 		
-		String text = "اعطى الولد البنت كتابا ساءل امْرَأَتِي";
+		String text = "";
+		String latin = "";
 		
-		String latin = habash.getLatinString(text);
+//		text = "أُرِيــــدُ كِــــتـابــاً‏";
+//		latin = habash.getLatinString(text);	
+//		assertEquals("Âuriydu kitAbAã", latin);
+
+//		text = "أُرِيدُ كِتاباً‏";
+//		latin = habash.getLatinString(text);	
+//		assertEquals("Âuriydu kitAbAã", latin);
+
+		text = "تطويـــــــــــــــــــــــــــــــــــل         هكـــــــــذا";
+		latin = habash.getLatinString(text);	
+		assertEquals("tTwyl hkðA", latin);
 		
-		assertEquals("AETY Alwld Albnt ktAbA sA'l Amora>atiy", latin);
+		
 	}
 	
 }
