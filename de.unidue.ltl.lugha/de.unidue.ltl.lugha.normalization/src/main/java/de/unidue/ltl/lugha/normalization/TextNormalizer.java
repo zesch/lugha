@@ -1,3 +1,11 @@
+/*******************************************************************************
+ * 
+ * Copyright 2015
+ * Language Technology Lab (LTL)
+ * University of Duisburg-Essen
+ * 
+ ******************************************************************************/
+
 package de.unidue.ltl.lugha.normalization;
 
 
@@ -7,7 +15,7 @@ package de.unidue.ltl.lugha.normalization;
 public class TextNormalizer {
 
 	/**
-	 * TODO description of what kinds of normalization is performed
+	 * Description of what kinds of normalization is performed
 	 * 
 	 * @param text
 	 *   The input text:تطويـــــــــــــــــــــــــــــــــــل         هكـــــــــذا

@@ -14,6 +14,12 @@ import java.util.Collections;
 
 public class PunctuationMarks {
 
+	/**
+	 * 
+	 * This class contains the set of 13 Arabic punctuation marks
+	 * 
+	 */
+	
 	public static final Set<String> punctuations;
 
 	static {

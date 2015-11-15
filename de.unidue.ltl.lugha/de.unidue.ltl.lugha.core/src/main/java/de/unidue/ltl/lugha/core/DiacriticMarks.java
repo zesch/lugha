@@ -12,7 +12,19 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 
+ * @Web: http://blogs.transparent.com/arabic/2-arabic-diacritics-al-tashkeel-الـتـشـكـيـــل/
+ *
+ */
+
 public class DiacriticMarks {
+
+	/**
+	 * 
+	 * This class contains the basic set of 8 Arabic diacritic marks
+	 * 
+	 */
 
 	public static final Set<String> diacritics;
 

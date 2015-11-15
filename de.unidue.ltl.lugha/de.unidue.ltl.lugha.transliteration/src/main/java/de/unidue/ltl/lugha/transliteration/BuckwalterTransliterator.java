@@ -1,3 +1,11 @@
+/*******************************************************************************
+ * 
+ * Copyright 2015
+ * Language Technology Lab (LTL)
+ * University of Duisburg-Essen
+ * 
+ ******************************************************************************/
+
 package de.unidue.ltl.lugha.transliteration;
 
 import de.unidue.ltl.lugha.normalization.TextNormalizer;

@@ -1,3 +1,11 @@
+/*******************************************************************************
+ * 
+ * Copyright 2015
+ * Language Technology Lab (LTL)
+ * University of Duisburg-Essen
+ * 
+ ******************************************************************************/
+
 package de.unidue.ltl.lugha.transliteration.diacritic;
 
 
@@ -8,12 +16,12 @@ import de.unidue.ltl.lugha.normalization.TextNormalizer;
 public class DiacriticsRemover {
 
 	/**
-	 * TODO Description of what kinds of DiacriticsRemover is performed
+	 * Description of what kinds of DiacriticsRemover is performed
 	 * 
 	 * @param text
-	 *   The input text, eg. َبِّ أَعِنِّي وَلَا تُعِنْ عَلَيَّ وَانْصُرْنِي وَلَا تَنْصُرْ عَلَيَّ
+	 *   The input text, e.g.: "قَامَ الْقَسَمِ الْعَرَبِيِّ فِيْ جُوْجِلْ بِبَرْمَجَةٌ أَدَاةِ مُفِيْدَةٍ تَقُوْمُ بِتَشْكِيْلَ الْكَلِمَاتِ" 
 	 *            
-	 * @return The text without diacritics, e.g. رب أعني ولا تعن علي وانصرني ولا تنصر علي
+	 * @return The text without diacritics, e.g. "قام القسم العربي في جوجل ببرمجة أداة مفيدة تقوم بتشكيل الكلمات"
 	 */
 	public static String removeDiacritics(String text) {
 

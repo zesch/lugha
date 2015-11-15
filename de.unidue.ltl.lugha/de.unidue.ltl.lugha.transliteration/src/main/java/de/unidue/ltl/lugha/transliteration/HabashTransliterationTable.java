@@ -1,3 +1,11 @@
+/*******************************************************************************
+ * 
+ * Copyright 2015
+ * Language Technology Lab (LTL)
+ * University of Duisburg-Essen
+ * 
+ ******************************************************************************/
+
 package de.unidue.ltl.lugha.transliteration;
 
 
@@ -13,12 +21,16 @@ import org.apache.commons.collections.bidimap.UnmodifiableBidiMap;
  */
 public class HabashTransliterationTable {
 
+	/**
+	 * 
+	 * This class contains the bi directional map for the 1-to-1 Habash et al  Transliteration
+	 * 
+	 */
+
 	public static final BidiMap unicodeMap;
 	
 	static {
-		
-		// TODO mapping should work in both directions - use different map implementation
-		
+				
 		BidiMap map = new  DualHashBidiMap();;
 		
 		map.put("\u0621", "\'");

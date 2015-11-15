@@ -1,3 +1,11 @@
+/*******************************************************************************
+ * 
+ * Copyright 2015
+ * Language Technology Lab (LTL)
+ * University of Duisburg-Essen
+ * 
+ ******************************************************************************/
+
 package de.unidue.ltl.lugha.transliteration;
 
 import org.apache.commons.collections.BidiMap;
@@ -11,11 +19,18 @@ import org.apache.commons.collections.bidimap.UnmodifiableBidiMap;
  */
 public class BuckwalterTransliterationTable {
 
+	/**
+	 * 
+	 * This class contains the bi directional map for the 1-to-1 Buckwalter's Transliteration
+	 * 
+	 */
+	
 	public static final BidiMap unicodeMap;;
 	
 	static {
-		// TODO mapping should work in both directions - use different map implementation
+		
 		BidiMap map = new  DualHashBidiMap();
+		
 		map.put("\u0621", "\'");
 		map.put("\u0622", "|");
 		map.put("\u0623", ">");

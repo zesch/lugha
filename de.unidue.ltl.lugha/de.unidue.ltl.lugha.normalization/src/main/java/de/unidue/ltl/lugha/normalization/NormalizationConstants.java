@@ -1,4 +1,21 @@
+/*******************************************************************************
+ * 
+ * Copyright 2015
+ * Language Technology Lab (LTL)
+ * University of Duisburg-Essen
+ * 
+ ******************************************************************************/
+
 package de.unidue.ltl.lugha.normalization;
+
+/**
+ * 
+ * This class contains the Normalization Constants, i.e. :
+ * 
+ * 1- The Arabic letters that we change when we a find the word stem (root)
+ * 2- The Arabic prolongation letter, or the letter that is found in some Arabic script
+ * 
+ */
 
 public class NormalizationConstants {
 	
