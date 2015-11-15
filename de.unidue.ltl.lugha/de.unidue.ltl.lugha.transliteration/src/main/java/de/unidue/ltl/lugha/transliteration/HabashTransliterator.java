@@ -11,7 +11,11 @@ package de.unidue.ltl.lugha.transliteration;
 import de.unidue.ltl.lugha.normalization.TextNormalizer;
 
 /**
- * TODO
+ * 
+ * This class implements getLatinString() method found in interface:
+ * @link:de.unidue.ltl.lugha.transliteration.Transliterator
+ * The provided transliteration confirms with Habash et. al scheme.
+ * 
  */
 public class HabashTransliterator 
 	implements Transliterator

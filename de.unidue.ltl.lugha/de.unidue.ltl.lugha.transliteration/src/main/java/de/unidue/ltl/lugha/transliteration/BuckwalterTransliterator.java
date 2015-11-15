@@ -10,6 +10,14 @@ package de.unidue.ltl.lugha.transliteration;
 
 import de.unidue.ltl.lugha.normalization.TextNormalizer;
 
+/**
+ * 
+ * This class implements getLatinString() method found in interface:
+ * @link:de.unidue.ltl.lugha.transliteration.Transliterator
+ * The provided transliteration confirms with Buckwalter scheme.
+ * 
+ */
+
 public class BuckwalterTransliterator 
 	implements Transliterator
 {
