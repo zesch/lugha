@@ -12,8 +12,6 @@ import org.apache.commons.collections.BidiMap;
 import org.apache.commons.collections.bidimap.DualHashBidiMap;
 import org.apache.commons.collections.bidimap.UnmodifiableBidiMap;
 
-import de.unidue.ltl.lugha.normalization.TextNormalizer;
-
 /**
  * 
  * Transliteration following the Habash et al. method

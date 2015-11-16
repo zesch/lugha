@@ -9,10 +9,6 @@
 package de.unidue.ltl.lugha.transliteration;
 
 import org.apache.commons.collections.BidiMap;
-import org.apache.commons.collections.bidimap.DualHashBidiMap;
-import org.apache.commons.collections.bidimap.UnmodifiableBidiMap;
-
-import de.unidue.ltl.lugha.normalization.TextNormalizer;
 
 /**
  * Abstract base class for bidimap based @BidiTransliterator 
