@@ -23,19 +23,12 @@ public class BuckwalterTest {
 	@Test
 	public void buckwalterTest() {
 		
-		Transliterator buckwalter = new BuckwalterTransliterator();
+		BidiTransliterator buckwalter = new BuckwalterTransliterator();
 		
-		String text = "";
-		String latin = "";
+		String arabic = "اعطى الولد البنت كتابا ساءل امْرَأَتِي";
+		String latin = "AETY Alwld Albnt ktAbA sA'l Amora>atiy";
 		
-//		text = "تطويـــــــــــــــــــــــــــــــــــل         هكـــــــــذا";
-//		latin = buckwalter.getLatinString(text);		
-//		assertEquals("tTwyl hk*A", latin);
-		
-		text = "اعطى الولد البنت كتابا ساءل امْرَأَتِي";		
-		latin = buckwalter.getLatinString(text);	
-		assertEquals("AETY Alwld Albnt ktAbA sA'l Amora>atiy", latin);
-		
+		assertEquals(latin, buckwalter.getLatinString(arabic));
+		assertEquals(arabic, buckwalter.getArabicString(latin));		
 	}
-	
 }

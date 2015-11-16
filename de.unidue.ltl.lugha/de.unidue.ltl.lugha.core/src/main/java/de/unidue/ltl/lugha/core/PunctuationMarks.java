@@ -14,13 +14,7 @@ import java.util.Collections;
 
 public class PunctuationMarks {
 
-	/**
-	 * 
-	 * This class contains the set of 13 Arabic punctuation marks
-	 * 
-	 */
-	
-	public static final Set<String> punctuations;
+	private static final Set<String> punctuations;
 
 	static {
 
@@ -41,7 +35,9 @@ public class PunctuationMarks {
 		set.add("..."); // points of ellipsis.	
 		
 		punctuations = Collections.unmodifiableSet(set);
-		
 	}
-
+	
+	public static Set<String> getPunctuationMarks() {
+		return punctuations;
+	}
 }

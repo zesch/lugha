@@ -6,13 +6,13 @@
  * 
  ******************************************************************************/
 
-package de.unidue.ltl.lugha.transliteration.diacritic;
+package de.unidue.ltl.lugha.normalization;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import de.unidue.ltl.lugha.transliteration.diacritic.DiacriticsRemover;
+import de.unidue.ltl.lugha.normalization.DiacriticsRemover;
 
 /**
  * 

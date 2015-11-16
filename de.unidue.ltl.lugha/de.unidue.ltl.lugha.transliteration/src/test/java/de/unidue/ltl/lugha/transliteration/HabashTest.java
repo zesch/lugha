@@ -22,25 +22,13 @@ public class HabashTest {
 
 	@Test
 	public void habashTest() {
+				
+		BidiTransliterator habash = new HabashTransliterator();
 		
-		Transliterator habash = new HabashTransliterator();
+		String arabic = "اعطى الولد البنت كتابا ساءل امْرَأَتِي";
+		String latin = "AςTý Alwld Albnt ktAbA sA'l AmoraÂatiy";
 		
-		String text = "";
-		String latin = "";
-		
-//		text = "أُرِيــــدُ كِــــتـابــاً‏";
-//		latin = habash.getLatinString(text);	
-//		assertEquals("Âuriydu kitAbAã", latin);
-
-//		text = "أُرِيدُ كِتاباً‏";
-//		latin = habash.getLatinString(text);	
-//		assertEquals("Âuriydu kitAbAã", latin);
-
-		text = "تطويـــــــــــــــــــــــــــــــــــل         هكـــــــــذا";
-		latin = habash.getLatinString(text);	
-		assertEquals("tTwyl hkðA", latin);
-		
-		
+		assertEquals(latin, habash.getLatinString(arabic));
+		assertEquals(arabic, habash.getArabicString(latin));
 	}
-	
 }

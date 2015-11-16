@@ -13,20 +13,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 
- * @Web: http://blogs.transparent.com/arabic/2-arabic-diacritics-al-tashkeel-الـتـشـكـيـــل/
+ * Class that holds the 8 diacritic marks in Arabic.
  *
  */
-
 public class DiacriticMarks {
 
-	/**
-	 * 
-	 * This class contains the basic set of 8 Arabic diacritic marks
-	 * 
-	 */
-
-	public static final Set<String> diacritics;
+	private static final Set<String> diacritics;
 
 	static {
 
@@ -42,7 +34,9 @@ public class DiacriticMarks {
 		set.add("\u0652"); // SUKUN
 		
 		diacritics = Collections.unmodifiableSet(set);
-		
 	}
 
+	public static Set<String> getDiacritics() {
+		return diacritics;
+	}
 }

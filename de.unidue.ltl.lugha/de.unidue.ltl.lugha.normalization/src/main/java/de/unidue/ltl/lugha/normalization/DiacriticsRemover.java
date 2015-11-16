@@ -6,17 +6,19 @@
  * 
  ******************************************************************************/
 
-package de.unidue.ltl.lugha.transliteration.diacritic;
+package de.unidue.ltl.lugha.normalization;
 
 
 import de.unidue.ltl.lugha.core.DiacriticMarks;
-import de.unidue.ltl.lugha.normalization.TextNormalizer;
 
 
+/**
+ * Normalizes Arabic text by removing diacritic marks
+ */
 public class DiacriticsRemover {
 
 	/**
-	 * Description of what kinds of DiacriticsRemover is performed
+	 * Removes all diacritic marks in a given text.
 	 * 
 	 * @param text
 	 *   The input text, e.g.: "قَامَ الْقَسَمِ الْعَرَبِيِّ فِيْ جُوْجِلْ بِبَرْمَجَةٌ أَدَاةِ مُفِيْدَةٍ تَقُوْمُ بِتَشْكِيْلَ الْكَلِمَاتِ" 
@@ -24,19 +26,17 @@ public class DiacriticsRemover {
 	 * @return The text without diacritics, e.g. "قام القسم العربي في جوجل ببرمجة أداة مفيدة تقوم بتشكيل الكلمات"
 	 */
 	public static String removeDiacritics(String text) {
-
 		
 		String normalizedText = TextNormalizer.normalizeText(text);
 
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < normalizedText.length(); i++) {
 			String unigram = text.substring(i, i + 1);
-				if (!DiacriticMarks.diacritics.contains(unigram))
+				if (!DiacriticMarks.getDiacritics().contains(unigram))
 				{
 					sb.append(unigram);
 				}
 		}
-		
 		
 		return sb.toString();
 	}
