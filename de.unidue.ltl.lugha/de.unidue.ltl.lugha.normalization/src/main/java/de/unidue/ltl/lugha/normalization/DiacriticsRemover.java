@@ -21,7 +21,7 @@ public class DiacriticsRemover {
 	 * Removes all diacritic marks in a given text.
 	 * 
 	 * @param text
-	 *   The input text, e.g.: "قَامَ الْقَسَمِ الْعَرَبِيِّ فِيْ جُوْجِلْ بِبَرْمَجَةٌ أَدَاةِ مُفِيْدَةٍ تَقُوْمُ بِتَشْكِيْلَ الْكَلِمَاتِ" 
+	 * 	The input text, e.g.: "قَامَ الْقَسَمِ الْعَرَبِيِّ فِيْ جُوْجِلْ بِبَرْمَجَةٌ أَدَاةِ مُفِيْدَةٍ تَقُوْمُ بِتَشْكِيْلَ الْكَلِمَاتِ" 
 	 *            
 	 * @return The text without diacritics, e.g. "قام القسم العربي في جوجل ببرمجة أداة مفيدة تقوم بتشكيل الكلمات"
 	 */
