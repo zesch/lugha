@@ -14,7 +14,7 @@ import java.util.Collections;
 
 /**
  * Class that holds the Arabic Punctuation marks.
- *
+ * @web: http://blogs.transparent.com/arabic/punctuation-in-arabic/ 
  */
 
 public class PunctuationMarks {
@@ -38,6 +38,8 @@ public class PunctuationMarks {
 		set.add("(");
 		set.add(")");
 		set.add("..."); // points of ellipsis.	
+		set.add("”");//right quotation marks.
+		set.add("“");//left quotation marks. 
 		
 		set.add(".");
 		set.add("{");
