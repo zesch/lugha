@@ -12,6 +12,11 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Collections;
 
+/**
+ * Class that holds the Arabic Punctuation marks.
+ *
+ */
+
 public class PunctuationMarks {
 
 	private static final Set<String> punctuations;
@@ -34,6 +39,14 @@ public class PunctuationMarks {
 		set.add(")");
 		set.add("..."); // points of ellipsis.	
 		
+		set.add(".");
+		set.add("{");
+		set.add("}");		
+		set.add("[");
+		set.add("]");		
+		set.add("/");
+
+
 		punctuations = Collections.unmodifiableSet(set);
 	}
 	
