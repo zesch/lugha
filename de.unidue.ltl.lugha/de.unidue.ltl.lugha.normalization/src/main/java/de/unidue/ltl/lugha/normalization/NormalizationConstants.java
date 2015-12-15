@@ -16,7 +16,7 @@ package de.unidue.ltl.lugha.normalization;
  * 2- The Arabic prolongation letter, or the letter that is found in some Arabic script
  * 
  */
-
+// TODO is this ever used?
 public class NormalizationConstants {
 	
 	// TODO why is everything char except TATWEEL?

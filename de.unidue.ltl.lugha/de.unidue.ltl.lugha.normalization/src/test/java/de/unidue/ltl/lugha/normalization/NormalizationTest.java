@@ -33,4 +33,14 @@ public class NormalizationTest {
 		assertEquals("تطويل هكذا", normalized);
 
 	}
+	
+	@Test
+	public void fullyNormalizeTatweelTest() {
+		
+		String text = "تطويـــــــــــــــــــــ123ــــــــــــــل         هكـــــــــذا";
+				
+		String normalized = TextNormalizer.fullyNormalizeText(text);
+		assertEquals("تطويل هكذا", normalized);
+
+	}
 }
