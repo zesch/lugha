@@ -24,7 +24,7 @@ public class BuckwalterTest {
 	public void buckwalterTest() {
 		
 		BidiTransliterator buckwalter = new BuckwalterTransliterator();
-		
+
 		String arabic = "اعطى الولد البنت كتابا ساءل امْرَأَتِي";
 		String latin = "AETY Alwld Albnt ktAbA sA'l Amora>atiy";
 		

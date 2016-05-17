@@ -78,6 +78,8 @@ public class TextNormalizer {
 	{
 		StringBuilder sb = new StringBuilder();
 		
+		int lettersCount = 0;
+		
 	    int count = Character.codePointCount(text, 0, text.length());
 	    for (int i = 0; i < count; i++) {
 	        int c = text.codePointAt(i);
@@ -86,8 +88,10 @@ public class TextNormalizer {
 	        	(c >= 0xFE70 && c<=0xFEFF))
 	        {
 	        	sb.append(Character.toChars(c));
+	        	lettersCount++;
 	        }	        	
 	    }
+	    	    
 	    return sb.toString();
 	}
 }
