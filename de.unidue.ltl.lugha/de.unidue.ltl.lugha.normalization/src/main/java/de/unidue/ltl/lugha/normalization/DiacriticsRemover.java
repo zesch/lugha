@@ -40,5 +40,22 @@ public class DiacriticsRemover {
 		
 		return sb.toString();
 	}
+	
+	public static String removeAdditionalDiacritics(String text) {
+		
+		String normalizedText = TextNormalizer.normalizeText(text);
+
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < normalizedText.length(); i++) {
+			String unigram = text.substring(i, i + 1);
+				if (!DiacriticMarks.getAdditionaldiacritics().contains(unigram))
+				{
+					sb.append(unigram);
+				}
+		}
+		
+		return sb.toString();
+	}
+
 
 }

@@ -19,6 +19,8 @@ import java.util.Set;
 public class DiacriticMarks {
 
 	private static final Set<String> diacritics;
+	
+	private static final Set<String> additionalDiacritics;
 
 	static {
 
@@ -34,9 +36,19 @@ public class DiacriticMarks {
 		set.add("\u0652"); // SUKUN
 		
 		diacritics = Collections.unmodifiableSet(set);
+		
+		set = new HashSet<String>();
+		set.add("\u0670"); // Dagger alif
+		
+		additionalDiacritics = Collections.unmodifiableSet(set);
 	}
 
 	public static Set<String> getDiacritics() {
 		return diacritics;
 	}
+
+	public static Set<String> getAdditionaldiacritics() {
+		return additionalDiacritics;
+	}
+		
 }

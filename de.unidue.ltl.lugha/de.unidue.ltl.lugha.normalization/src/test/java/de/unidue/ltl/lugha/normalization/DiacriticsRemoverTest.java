@@ -30,6 +30,13 @@ public class DiacriticsRemoverTest {
     	String withoutDiacritics = DiacriticsRemover.removeDiacritics(withDiacritics);
     	
 		assertEquals("قام القسم العربي في جوجل ببرمجة أداة مفيدة تقوم بتشكيل الكلمات", withoutDiacritics);
+		
+		
+		String withAdditionalDiacritics = "الرَّحْمٰن";
+		
+		String withoutAdditionalDiacritics = DiacriticsRemover.removeAdditionalDiacritics(withAdditionalDiacritics);	
+
+		assertEquals("الرَّحْمن", withoutAdditionalDiacritics);
 
 	}
 
