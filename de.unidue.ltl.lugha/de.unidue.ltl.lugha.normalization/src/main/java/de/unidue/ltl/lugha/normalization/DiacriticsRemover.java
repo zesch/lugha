@@ -41,7 +41,7 @@ public class DiacriticsRemover {
 		return sb.toString();
 	}
 	
-	public static String removeAdditionalDiacritics(String text) {
+	public static String removeReplaceAdditionalDiacritics(String text) {
 		
 		String normalizedText = TextNormalizer.normalizeText(text);
 
@@ -51,6 +51,8 @@ public class DiacriticsRemover {
 				if (!DiacriticMarks.getAdditionaldiacritics().contains(unigram))
 				{
 					sb.append(unigram);
+				}else{
+					sb.append("\u064E");
 				}
 		}
 		
