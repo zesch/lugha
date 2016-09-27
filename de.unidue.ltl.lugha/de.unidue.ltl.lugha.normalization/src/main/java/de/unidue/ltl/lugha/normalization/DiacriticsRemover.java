@@ -41,7 +41,12 @@ public class DiacriticsRemover {
 		return sb.toString();
 	}
 	
-	public static String removeReplaceAdditionalDiacritics(String text) {
+	/**
+	 * Replace Dager Alf with Fatha, we might include others
+	 * @param text
+	 * @return
+	 */
+	public static String replaceAdditionalDiacritics(String text) {
 		
 		String normalizedText = TextNormalizer.normalizeText(text);
 
@@ -58,6 +63,27 @@ public class DiacriticsRemover {
 		
 		return sb.toString();
 	}
+	
+	public static String removeSukun(String text) {
+		
+		String normalizedText = TextNormalizer.normalizeText(text);
+
+		StringBuilder sb = new StringBuilder(); 
+		
+		for (int i = 0; i < normalizedText.length(); i++) {
+			
+			String unigram = text.substring(i, i + 1);
+			
+				if (! unigram.equals("\u0652") )
+				{
+					sb.append(unigram);
+				}
+		}
+		
+		return sb.toString();
+
+	}
+
 
 
 }
