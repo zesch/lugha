@@ -32,6 +32,8 @@ public class PunctuationMarks {
 		set.add("--");
 		set.add("(");
 		set.add(")");
+		set.add("<<");
+		set.add(">>");
 		set.add("..."); // points of ellipsis.
 
 		punctuations = Collections.unmodifiableSet(set);
