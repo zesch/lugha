@@ -34,11 +34,21 @@ public class DiacriticsRemoverTest {
 		
 		String withAdditionalDiacritics = "الرَّحْمٰن الرَّحِيم";
 		
-		String withoutAdditionalDiacritics = DiacriticsRemover.removeReplaceAdditionalDiacritics(withAdditionalDiacritics);	
+		String withoutAdditionalDiacritics = DiacriticsRemover.replaceAdditionalDiacritics(withAdditionalDiacritics);	
 		
 		System.out.println(withoutAdditionalDiacritics);
 
 		assertEquals("الرَّحْمَن الرَّحِيم", withoutAdditionalDiacritics);
+
+		
+		String withSukun = "بِسْمِ";
+		
+		String withoutSukun = DiacriticsRemover.removeSukun(withSukun);	
+		
+		System.out.println(withoutSukun);
+
+		assertEquals("بِسمِ", withoutSukun);
+
 
 	}
 
