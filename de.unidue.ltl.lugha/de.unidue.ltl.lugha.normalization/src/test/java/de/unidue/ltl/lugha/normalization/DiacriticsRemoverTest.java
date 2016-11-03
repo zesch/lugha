@@ -27,10 +27,13 @@ public class DiacriticsRemoverTest {
 		  	
     	String withDiacritics = "قَامَ الْقَسَمِ الْعَرَبِيِّ فِيْ جُوْجِلْ بِبَرْمَجَةٌ أَدَاةِ مُفِيْدَةٍ تَقُوْمُ بِتَشْكِيْلَ الْكَلِمَاتِ";
     	
+    	System.out.println(withDiacritics.length());
+    	
     	String withoutDiacritics = DiacriticsRemover.removeDiacritics(withDiacritics);
     	
+    	System.out.println(withoutDiacritics.length());
+    	
 		assertEquals("قام القسم العربي في جوجل ببرمجة أداة مفيدة تقوم بتشكيل الكلمات", withoutDiacritics);
-		
 		
 		String withAdditionalDiacritics = "الرَّحْمٰن الرَّحِيم";
 		
@@ -39,7 +42,6 @@ public class DiacriticsRemoverTest {
 		System.out.println(withoutAdditionalDiacritics);
 
 		assertEquals("الرَّحْمَن الرَّحِيم", withoutAdditionalDiacritics);
-
 		
 		String withSukun = "بِسْمِ";
 		
