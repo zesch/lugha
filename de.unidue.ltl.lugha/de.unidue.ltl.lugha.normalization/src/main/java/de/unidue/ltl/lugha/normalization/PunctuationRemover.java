@@ -33,4 +33,26 @@ public class PunctuationRemover {
 		return sb.toString();
 	}
 
+	public static int hasPunctuation(String text) {
+		
+		int result = 0;
+		
+		String normalizedText = TextNormalizer.normalizeText(text);
+		
+		for (int i = 0; i < normalizedText.length(); i++) {
+			
+			String unigram = text.substring(i, i + 1);
+			
+			if (PunctuationMarks.getPunctuations().contains(unigram))
+			{
+				result ++;
+			}
+
+		}
+		
+		return result;
+
+	}
+	
+
 }
