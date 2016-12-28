@@ -43,4 +43,15 @@ public class NormalizationTest {
 		assertEquals("تطويل هكذا", normalized);
 
 	}
+	
+	@Test
+	public void normalizeAlifsToBareFormTest() {
+		
+		String text = "آسامة";
+				
+		String normalized = TextNormalizer.normalizeAllAlifsToBareAlif(text);
+		assertEquals("اسامة", normalized);
+
+	}
+
 }

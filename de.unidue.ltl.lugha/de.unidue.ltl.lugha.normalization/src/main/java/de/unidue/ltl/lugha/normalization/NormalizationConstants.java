@@ -22,6 +22,7 @@ public class NormalizationConstants {
 	// TODO why is everything char except TATWEEL?
 	public static final char ALIF = '\u0627';
 	public static final char ALIF_HAMZA_ABOVE = '\u0623';
+	public static final char ALIF_WASLA_ABOVE = '\u0671';
 	public static final char ALIF_HAMZA_BELOW = '\u0625';
 	public static final char ALIF_MADDA = '\u0622';
 	public static final char TAA_MARBUTA = '\u0629';
