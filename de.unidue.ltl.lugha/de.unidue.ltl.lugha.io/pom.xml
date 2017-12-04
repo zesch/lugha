@@ -6,7 +6,36 @@
     <version>0.1.0-SNAPSHOT</version>
   </parent>
   <artifactId>de.unidue.ltl.lugha.io</artifactId>
+ 
   <dependencies>
+  
+<!--   	<dependency> -->
+<!--   		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId> -->
+<!--   		<artifactId>de.tudarmstadt.ukp.dkpro.core-asl</artifactId> -->
+<!--   		<version>1.8.0</version> -->
+<!--   		<type>pom</type> -->
+<!--   	</dependency> -->
+<!--   	<dependency> -->
+<!--   		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId> -->
+<!--   		<artifactId>de.tudarmstadt.ukp.dkpro.core-gpl</artifactId> -->
+<!--   		<version>1.8.0</version> -->
+<!--   		<type>pom</type> -->
+<!--   	</dependency> -->
+<!--   	<dependency> -->
+<!--   		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId> -->
+<!--   		<artifactId> -->
+<!--   			de.tudarmstadt.ukp.dkpro.core.tokit-asl -->
+<!--   		</artifactId> -->
+<!--   		<version>1.8.0</version> -->
+<!--   	</dependency> -->
+<!--   	<dependency> -->
+<!--   		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId> -->
+<!--   		<artifactId> -->
+<!--   			de.tudarmstadt.ukp.dkpro.core.stanfordnlp-gpl -->
+<!--   		</artifactId> -->
+<!--   		<version>1.8.0</version> -->
+<!--   	</dependency> -->
+
   	<dependency>
   		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
   		<artifactId>
@@ -18,6 +47,26 @@
   		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
   		<artifactId>
   			de.tudarmstadt.ukp.dkpro.core.io.text-asl
+  		</artifactId>
+  		<version>1.8.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.dkpro.tc</groupId>
+  		<artifactId>dkpro-tc-ml-crfsuite</artifactId>
+  		<version>0.8.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>de.unidue.ltl.lugha</groupId>
+  		<artifactId>de.unidue.ltl.lugha.normalization</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>de.unidue.ltl.lugha</groupId>
+  		<artifactId>de.unidue.ltl.lugha.transliteration</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+  		<artifactId>
+  			de.tudarmstadt.ukp.dkpro.core.api.frequency-asl
   		</artifactId>
   		<version>1.8.0</version>
   	</dependency>
