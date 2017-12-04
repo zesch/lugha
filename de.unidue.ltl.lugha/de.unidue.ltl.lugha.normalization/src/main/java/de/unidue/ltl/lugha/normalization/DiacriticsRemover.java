@@ -84,6 +84,67 @@ public class DiacriticsRemover {
 
 	}
 
+	public static String removeTanweenFath(String text) {
+		
+		String normalizedText = TextNormalizer.normalizeText(text);
+
+		StringBuilder sb = new StringBuilder(); 
+		
+		for (int i = 0; i < normalizedText.length(); i++) {
+			
+			String unigram = text.substring(i, i + 1);
+			
+				if (! unigram.equals("\u064B") )
+				{
+					sb.append(unigram);
+				}
+		}
+		
+		return sb.toString();
+
+	}
+
+
+	public static String removeTanweenDamm(String text) {
+		
+		String normalizedText = TextNormalizer.normalizeText(text);
+
+		StringBuilder sb = new StringBuilder(); 
+		
+		for (int i = 0; i < normalizedText.length(); i++) {
+			
+			String unigram = text.substring(i, i + 1);
+			
+				if (! unigram.equals("\u064C") )
+				{
+					sb.append(unigram);
+				}
+		}
+		
+		return sb.toString();
+
+	}
+
+
+	public static String removeTanweenKasr(String text) {
+		
+		String normalizedText = TextNormalizer.normalizeText(text);
+
+		StringBuilder sb = new StringBuilder(); 
+		
+		for (int i = 0; i < normalizedText.length(); i++) {
+			
+			String unigram = text.substring(i, i + 1);
+			
+				if (! unigram.equals("\u064D") )
+				{
+					sb.append(unigram);
+				}
+		}
+		
+		return sb.toString();
+
+	}
 
 
 }
