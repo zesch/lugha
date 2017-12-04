@@ -12,7 +12,7 @@ public class MergeCorporaFilesTest {
 //	public static final String targetFileUri = "src/test/resources/seq/seq.txt";
 //	public static final String sourceFolder = "src/test/resources/ar/rdim";
 
-	public static final String targetFileUri = "src/test/resources/seq/seq.txt";
+	public static final String targetFileUri = "src/test/seq/seq.txt";
 	public static final String sourceFolder = "/Users/ltl2014lf/Downloads/main-paper/Khaleej-2004/economy";
 
 	@Test
