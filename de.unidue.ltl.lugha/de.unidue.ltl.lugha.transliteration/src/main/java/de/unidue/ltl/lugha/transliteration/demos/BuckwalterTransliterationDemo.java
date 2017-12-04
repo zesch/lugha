@@ -6,7 +6,7 @@ import java.util.List;
 import de.unidue.ltl.lugha.transliteration.BuckwalterTransliterator;
 import de.unidue.ltl.lugha.transliteration.HabashTransliterator;
 import de.unidue.ltl.lugha.transliteration.Transliterator;
-import de.unidue.ltl.lugha.io.SimpleReader;
+//import de.unidue.ltl.lugha.io.SimpleReader;
 
 public class BuckwalterTransliterationDemo {
 
@@ -19,10 +19,11 @@ public class BuckwalterTransliterationDemo {
 //		list = readFile("src/main/resources/A-D.txt");
 //		list = readFile("src/main/resources/A-ND.txt");
 //		list = readFile("src/main/resources/B-ND.txt");
-		list = SimpleReader.readFile("src/main/resources/B-D.txt");
 		
-		for(String line: list)
-			System.out.println(showBuckwalterTransliteration(line));
+//		list = SimpleReader.readFile("src/main/resources/B-D.txt");
+//		
+//		for(String line: list)
+//			System.out.println(showBuckwalterTransliteration(line));
 
 	}
 	
