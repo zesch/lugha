@@ -27,6 +27,11 @@ public class DomainTransferWordCount {
 	
 	public static void countsForDiacWords() throws Exception {
 
+		/**
+		 * TODO:By TZ
+		 * Refer to the getCorpusPath(...) and change the pthes accordingly.
+		 */
+		
 		String corpusFile = CorpusFile.getCorpusPath(CorpusName.Tashkeela11Books);
 
 		CollectionReaderDescription reader = CollectionReaderFactory
