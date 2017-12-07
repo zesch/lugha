@@ -14,7 +14,7 @@
 	  	<repository>
 	        <id>basa</id>
 	        <name>basa-releases</name>
-	        <url>http://134.91.18.140:34000/artifactory/snapshots</url>
+	        <url>http://basa.ltl.uni-due.de:34001/artifactory/snapshots</url>
 	    </repository>  
 
 	</repositories>
@@ -27,7 +27,24 @@
   			<artifactId>FarasaSegmenterJar</artifactId>
   			<version>FarasaSegmenterJar</version>
   		</dependency>
-  		
+
+  		<dependency>
+  			<groupId>junit</groupId>
+  			<artifactId>junit</artifactId>
+  			<version>4.11</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.apache.uima</groupId>
+  			<artifactId>uimafit-core</artifactId>
+  			<version>2.4.0</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+  			<artifactId>
+  				de.tudarmstadt.ukp.dkpro.core.api.segmentation-asl
+  			</artifactId>
+  			<version>1.8.0</version>
+  		</dependency>
   	</dependencies>
   	
 </project>

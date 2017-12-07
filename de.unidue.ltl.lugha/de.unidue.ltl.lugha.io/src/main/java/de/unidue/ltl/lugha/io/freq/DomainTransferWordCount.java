@@ -57,7 +57,7 @@ public class DomainTransferWordCount {
 				)
 	    );
         
-        String[] roots = new String[]{"Elm", "*kr", "Eyn", "Zlm", "Eql", "$Er", "fjr", "nbE"};
+        String[] roots = new String[]{"Elm", "*kr", "Eyn", "Zlm", "Eql", "$Er", "fjr", "nbE", "byt"};
         
         for (String root : roots) {
         	printDivider(root);
@@ -126,7 +126,7 @@ public class DomainTransferWordCount {
 	private void printSet(ConditionalFrequencyDistribution<String, String> cfd, String root) {
         FrequencyDistribution<String> fd = cfd.getFrequencyDistribution(root);
         for(String key : fd.getKeys()){
-			System.out.println(key + " : " + fd.getCount(key));
+			System.out.println(key + " : " + fd.getCount(key) + " - " + buckwalter.getLatinString(key));
 		}
 	}
 	
