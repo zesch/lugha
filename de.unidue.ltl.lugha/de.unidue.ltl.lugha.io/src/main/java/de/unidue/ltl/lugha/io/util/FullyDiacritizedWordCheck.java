@@ -3,7 +3,7 @@ package de.unidue.ltl.lugha.io.util;
 import de.unidue.ltl.lugha.transliteration.BuckwalterTransliterator;
 
 
-public class DiacriticsRatioPerLetterCheck {
+public class FullyDiacritizedWordCheck {
 	
 	
 	public static boolean fullyDiacritized(String token) {
