@@ -10,7 +10,10 @@ public class FullyDiacritizedWordCheck {
 		
 		boolean status = true;
 		
-		ArabicString arString =  getArabicString(token);
+		ArabicString arString =  new ArabicString(
+				new BuckwalterTransliterator());
+		
+		arString.initialize(token);
 				
 		
 		for (ArabicLetter letter: arString.getLetters()){
@@ -27,19 +30,5 @@ public class FullyDiacritizedWordCheck {
         return status;
 
 	}
-
-
-	public static ArabicString getArabicString (String str)
-    {
-		ArabicString arString = null;
-		
-		arString = new ArabicString(
-				new BuckwalterTransliterator());
-		
-		arString.initialize(str);
-		
-		return arString;
-
-    }
 	
 }
