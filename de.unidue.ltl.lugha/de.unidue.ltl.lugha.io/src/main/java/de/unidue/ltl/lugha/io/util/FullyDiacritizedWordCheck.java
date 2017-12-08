@@ -23,7 +23,7 @@ public class FullyDiacritizedWordCheck {
 		arString.initialize(token);
 				
 		for (ArabicLetter letter: arString.getLetters()){
-			if (letter.hasDiacritics()) {
+			if (letter.hasDiacritics() == false) {
 				return false;
 			}
 		}
