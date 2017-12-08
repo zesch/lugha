@@ -1,5 +1,6 @@
 package de.unidue.ltl.lugha.io.util;
 
+import de.unidue.ltl.lugha.core.DiacriticMarks;
 import de.unidue.ltl.lugha.transliteration.BuckwalterTransliterator;
 
 
@@ -29,4 +30,46 @@ public class FullyDiacritizedWordCheck {
 
         return true;
 	}
+	
+	public static boolean isFullyDiacritized(String token) {
+		StringBuilder sb = new StringBuilder();
+				
+		for (int i=0; i<token.length(); i++) {
+			String ch = token.substring(i, i+1);
+			
+			if (DiacriticMarks.isDiacritic(ch)) {
+				sb.append("d");
+			}
+			else {
+				sb.append("c");
+			}
+		}
+		String pattern = sb.toString().replaceAll("d+", "d");
+		
+		return pattern.matches("cd+");
+	}
+	
+	
+//	public static boolean isFullyDiacritized(String token) {
+//		
+//		boolean hasDiacritics = false;
+//		
+//		for (int i=0; i<token.length(); i++) {
+//			String ch = token.substring(i, i+1);
+//			
+//			if (DiacriticMarks.getDiacritics().contains(ch)) {
+//				hasDiacritics = true;
+//			}
+//			else {
+//				if (!hasDiacritics) {
+//					return false;
+//				}
+//				
+//				// as we have seen a new character, clear the diacritics flag
+//				hasDiacritics = false;
+//			}
+//		}
+//		
+//		return true;
+//	}
 }

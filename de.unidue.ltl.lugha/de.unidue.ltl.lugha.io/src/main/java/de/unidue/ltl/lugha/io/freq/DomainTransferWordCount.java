@@ -29,6 +29,10 @@ import de.unidue.ltl.lugha.uima.FarasaSegmenter;
 
 public class DomainTransferWordCount {
 	
+	public static final String LTR = "\u202A";
+	public static final String RTL = "\u202B";
+	public static final String POP = "\u202C";
+	
 	private Transliterator buckwalter = new BuckwalterTransliterator();
 
 	private ConditionalFrequencyDistribution<String,String> cfd;
@@ -53,6 +57,9 @@ public class DomainTransferWordCount {
 //		String corpusFile = CorpusFile.getCorpusPath(CorpusName.Tashkeela11Books);
 
 		String corpusFile = DkproContext.getContext().getWorkspace("corpora").getAbsolutePath() + "/arabic/tashkeela.txt";
+//		String corpusFile = DkproContext.getContext().getWorkspace("corpora").getAbsolutePath() + "/arabic/quran.txt";
+//		String corpusFile = DkproContext.getContext().getWorkspace("corpora").getAbsolutePath() + "/arabic/rdi.txt";
+//		String corpusFile = DkproContext.getContext().getWorkspace("corpora").getAbsolutePath() + "/arabic/WikiNewsTruth.txt";
 					
 	    initializeCFD(
 	    		CollectionReaderFactory.createReaderDescription(
@@ -90,7 +97,7 @@ public class DomainTransferWordCount {
         	System.out.println(level + " : " + ambiguity.getCount(level));
         }
         
-        int[] sizes = new int[]{15,16,17,18,19,20};
+        int[] sizes = new int[]{15,16,17,18,19,20,55};
         for (int size : sizes) {
         	printDistribution(cfd, size);
         }
@@ -103,12 +110,13 @@ public class DomainTransferWordCount {
 
 	    int wordCount = 0;
 	    int partialCount = 0;
+	    int dismissedCount = 0;
         for (JCas jcas : new JCasIterable(reader)) {
         	tokenizer.process(jcas);
         	
         	for (Token token : JCasUtil.select(jcas, Token.class)) {
 				wordCount++;
-				
+								
 				// TODO why do we need double normalization?
 	            String word = TextNormalizer.fullyNormalizeText(
 	            				PunctuationRemover.removePunctuation(
@@ -119,28 +127,37 @@ public class DomainTransferWordCount {
 				word = DiacriticsRemover.removeTanweenDamm(word);
 				word = DiacriticsRemover.removeTanweenKasr(word);
 
+				if (word.contains(" ")) {
+					dismissedCount++;
+					continue;
+				}
+				
 				String root = DiacriticsRemover.removeDiacritics(word);
 			
 				String readableRoot = buckwalter.getLatinString(root);
 				
-//				if (FullyDiacritizedWordCheck.fullyDiacritized(word)) {
+				if (FullyDiacritizedWordCheck.isFullyDiacritized(word)) {
 					cfd.inc(readableRoot, word);
-//				}
-//				else {
-//					cfdPartial.inc(readableRoot, word);
-//				}	
+				}
+				else {
+					cfdPartial.inc(readableRoot, word);
+					partialCount++;
+				}	
 			}
         }
         System.out.println("# words: " + wordCount);
         System.out.println("# types: " + cfd.getConditions().size());
-        System.out.println("partial/all ratio: " + (double) partialCount / wordCount);
+        System.out.println("# partial (ratio): " + partialCount + " (" + (double) partialCount / wordCount + ")");
+        System.out.println("# dismissed (ratio): " + dismissedCount + " (" + (double) dismissedCount / wordCount + ")");
 
 	}
 	
 	private void printSet(ConditionalFrequencyDistribution<String, String> cfd, String root) {
-        FrequencyDistribution<String> fd = cfd.getFrequencyDistribution(root);
-        for(String key : fd.getKeys()){
-			System.out.println(key + " : " + fd.getCount(key) + " - " + buckwalter.getLatinString(key));
+		if (cfd.hasCondition(root)) {
+	        FrequencyDistribution<String> fd = cfd.getFrequencyDistribution(root);
+	        for(String key : fd.getKeys()){
+				System.out.println(key + " : " + LTR + fd.getCount(key) + " - " + buckwalter.getLatinString(key));
+			}			
 		}
 	}
 	
