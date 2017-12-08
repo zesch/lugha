@@ -18,7 +18,7 @@ import de.tudarmstadt.ukp.dkpro.core.api.frequency.util.ConditionalFrequencyDist
 import de.tudarmstadt.ukp.dkpro.core.api.frequency.util.FrequencyDistribution;
 import de.tudarmstadt.ukp.dkpro.core.api.resources.DkproContext;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
-import de.tudarmstadt.ukp.dkpro.core.tokit.RegexTokenizer;
+import de.unidue.ltl.lugha.io.util.FullyDiacritizedWordCheck;
 import de.unidue.ltl.lugha.normalization.DiacriticsRemover;
 import de.unidue.ltl.lugha.normalization.PunctuationRemover;
 import de.unidue.ltl.lugha.normalization.TextNormalizer;
@@ -31,11 +31,20 @@ public class DomainTransferWordCount {
 	
 	private Transliterator buckwalter = new BuckwalterTransliterator();
 
+	private ConditionalFrequencyDistribution<String,String> cfd;
+	private ConditionalFrequencyDistribution<String,String> cfdPartial;
+
 	public static void main(String[] args) 
 			throws Exception
 	{
 		DomainTransferWordCount exp = new DomainTransferWordCount();
 		exp.analyze();
+	}
+	
+	public DomainTransferWordCount() {
+		buckwalter = new BuckwalterTransliterator();
+		cfd = new ConditionalFrequencyDistribution<String, String>();
+		cfdPartial = new ConditionalFrequencyDistribution<String, String>();
 	}
 		
 	public void analyze() 
@@ -45,7 +54,7 @@ public class DomainTransferWordCount {
 
 		String corpusFile = DkproContext.getContext().getWorkspace("corpora").getAbsolutePath() + "/arabic/tashkeela.txt";
 					
-	    ConditionalFrequencyDistribution<String,String> cfd = getCFD(
+	    initializeCFD(
 	    		CollectionReaderFactory.createReaderDescription(
 						CorporaStatisitcsArabicReader.class,
 						CorporaStatisitcsArabicReader.PARAM_SENTENCES_FILE, corpusFile,
@@ -81,23 +90,19 @@ public class DomainTransferWordCount {
         	System.out.println(level + " : " + ambiguity.getCount(level));
         }
         
-        int[] sizes = new int[]{12,13,14,15,16,17,18,19,20};
+        int[] sizes = new int[]{15,16,17,18,19,20};
         for (int size : sizes) {
         	printDistribution(cfd, size);
         }
 
     }
 	
-	public DomainTransferWordCount() {
-		buckwalter = new BuckwalterTransliterator();
-	}
-	
-	private ConditionalFrequencyDistribution<String, String> getCFD(CollectionReaderDescription reader, AnalysisEngine tokenizer)
+	private void initializeCFD(CollectionReaderDescription reader, AnalysisEngine tokenizer)
 			throws AnalysisEngineProcessException
 	{
-	    ConditionalFrequencyDistribution<String,String> cfd = new ConditionalFrequencyDistribution<String, String>();
 
 	    int wordCount = 0;
+	    int partialCount = 0;
         for (JCas jcas : new JCasIterable(reader)) {
         	tokenizer.process(jcas);
         	
@@ -117,14 +122,19 @@ public class DomainTransferWordCount {
 				String root = DiacriticsRemover.removeDiacritics(word);
 			
 				String readableRoot = buckwalter.getLatinString(root);
-			
-				cfd.inc(readableRoot, word);
+				
+//				if (FullyDiacritizedWordCheck.fullyDiacritized(word)) {
+					cfd.inc(readableRoot, word);
+//				}
+//				else {
+//					cfdPartial.inc(readableRoot, word);
+//				}	
 			}
         }
         System.out.println("# words: " + wordCount);
         System.out.println("# types: " + cfd.getConditions().size());
+        System.out.println("partial/all ratio: " + (double) partialCount / wordCount);
 
-        return cfd;
 	}
 	
 	private void printSet(ConditionalFrequencyDistribution<String, String> cfd, String root) {

@@ -32,7 +32,11 @@ public class ArabicLetter {
 	public void setDiacritics(List<ArabicDiacritic> diacritics) {
 		this.diacritics = diacritics;
 	}
-
+	
+	public boolean hasDiacritics() {
+		return getDiacritics().size() > 0;
+	}
+	
 	public String getDiacriticsAr() {
 		
 		String str ="";

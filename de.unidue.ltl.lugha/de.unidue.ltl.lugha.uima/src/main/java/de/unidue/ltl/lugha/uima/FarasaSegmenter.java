@@ -54,15 +54,15 @@ public class FarasaSegmenter
 		String cleanedSegmentString = StringUtils.join(segments, " ").replaceAll("\\+", " ");
 		Deque<String> segmentQueue = new LinkedList<String>(Arrays.asList(cleanedSegmentString.split("")));
 		
-		
-		String sOrig = cleanString(originalQueue);
-		String sSeg = cleanString(segmentQueue);
-		
-		if (!sOrig.equals(sSeg)) {
-			System.out.println(sOrig);
-			System.out.println(sSeg);
-			System.out.println();
-		}
+//		// check for differences in segmentation
+//		String sOrig = cleanString(originalQueue);
+//		String sSeg = cleanString(segmentQueue);
+//		
+//		if (!sOrig.equals(sSeg)) {
+//			System.out.println(sOrig);
+//			System.out.println(sSeg);
+//			System.out.println();
+//		}
 		
 		// add trailing space, so that last token gets added
 		originalQueue.addLast(" ");
@@ -81,9 +81,9 @@ public class FarasaSegmenter
 			
 			String segmentChar = segmentQueue.poll();
 			if (segmentChar == null) {
-				throw new RuntimeException("Segmented string unalignable with original version.");
+				continue;
+//				throw new RuntimeException("Segmented string unalignable with original version.\n '" + originalString + "'\n'" + cleanedSegmentString + "'");
 			}
-//			System.out.println(currentChar + " - " + segmentChar);
 			
 			if (!currentChar.equals(segmentChar)) {
 				// segment within original token
@@ -96,13 +96,8 @@ public class FarasaSegmenter
 					startOffset = endOffset;
 					continue;
 				}
-//				else if (DiacriticMarks.isDiacritic(currentChar)) {
-//					// add segment char back to queue
-//					segmentQueue.addFirst(segmentChar);
-//					endOffset++;
-//					continue;
-//				}
 				else {
+					continue;
 //					throw new RuntimeException("Segmented string unalignable with original version.\n '" + originalString + "'\n'" + cleanedSegmentString + "'");					
 				}
 			}

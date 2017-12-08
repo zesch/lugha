@@ -35,8 +35,11 @@ public class FarasaSegmenterTest {
 	{
 
 //		JCas jcas = JCasFactory.createText("التَّرْبِيَةُ الْمِثَالِيَّةُ فِي الْقُرْآنِ الْكَرِيمِ");
-		JCas jcas = JCasFactory.createText("الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ");
+//		JCas jcas = JCasFactory.createText("الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ");
+		JCas jcas = JCasFactory.createText("الطبعة الأولى ، ");
+		 
 
+		
 		SimplePipeline.runPipeline(jcas,
 				AnalysisEngineFactory.createEngineDescription(FarasaSegmenter.class)
 		);

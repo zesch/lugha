@@ -8,27 +8,25 @@ public class FullyDiacritizedWordCheck {
 	
 	public static boolean fullyDiacritized(String token) {
 		
-		boolean status = true;
+		token = token.trim();
 		
-		ArabicString arString =  new ArabicString(
-				new BuckwalterTransliterator());
+		System.out.println("'" + token + "'");
+		System.out.println(token.length());
 		
+		// cannot be fully diacritized, if it contains only one character
+		if (token.length() < 2) {
+			return false;
+		}
+		
+		ArabicString arString =  new ArabicString(new BuckwalterTransliterator());
 		arString.initialize(token);
 				
-		
 		for (ArabicLetter letter: arString.getLetters()){
-			
-			if(letter.getDiacritics().size() == 0){
-				System.out.println("Letter has no diacritics: " + letter.getLetter() );
-				status = false;
+			if (letter.hasDiacritics()) {
+				return false;
 			}
 		}
 
-        
-        System.out.println("("+token+")  fully diacritized, status: " + status );
-        
-        return status;
-
+        return true;
 	}
-	
 }

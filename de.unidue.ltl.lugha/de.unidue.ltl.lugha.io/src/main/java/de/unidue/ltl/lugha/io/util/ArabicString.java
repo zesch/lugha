@@ -15,27 +15,18 @@ public class ArabicString {
 	public ArabicString(Transliterator transliterator) {
 		super();
 		letters = new ArrayList<ArabicLetter> ();
-		this.transliterator = transliterator;
-		
+		this.transliterator = transliterator;	
 	}
 
 	public void addLetter(ArabicLetter letter) {
 		letters.add(letter);
 	}
 	
-	public void addDiacriticForCurrentLetter(ArabicDiacritic diacritic) {
-		
-		/**
-		 * TODO:
-		 */
-		if (null != letters.get(letters.size()-1)){}
-			
-			ArabicLetter currentLetter = letters.get(letters.size()-1);
-			List<ArabicDiacritic> diacritics = currentLetter.getDiacritics();
-			diacritics.add(diacritic);
-			currentLetter.setDiacritics(diacritics);
-
-		
+	public void addDiacriticForCurrentLetter(ArabicDiacritic diacritic) {	
+		ArabicLetter currentLetter = letters.get(letters.size()-1);
+		List<ArabicDiacritic> diacritics = currentLetter.getDiacritics();
+		diacritics.add(diacritic);
+		currentLetter.setDiacritics(diacritics);
 	}
 
 	public List<ArabicLetter> getLetters() {
@@ -46,13 +37,9 @@ public class ArabicString {
 		this.letters = letters;
 	}
 	
+	// TODO this is not very robust, as it assumes fully diacritized and fails in many other cases
     public void initialize(String withDiacritics)
     {
-    	
-//    	System.out.println("withDiacritics:" + withDiacritics );
-//    	int size = withDiacritics.split(" ").length;
-//    	System.out.println("size:" + size );
-    	
         String transliteration = transliterator.getLatinString(withDiacritics);
 
         for (int i=0; i<withDiacritics.length(); i++)
@@ -74,5 +61,4 @@ public class ArabicString {
             }
         }        
     }
-        
 }
