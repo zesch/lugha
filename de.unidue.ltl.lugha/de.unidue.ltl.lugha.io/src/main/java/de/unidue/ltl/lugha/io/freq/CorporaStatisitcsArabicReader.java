@@ -69,7 +69,9 @@ public class CorporaStatisitcsArabicReader
             	/**
             	 * TOOD:
             	 */
-            	sentence = TextNormalizer.normalizeText(sentence);
+//            	sentence = TextNormalizer.normalizeText(sentence);
+            	sentence = TextNormalizer.fullyNormalizeText(sentence);
+
             			 
             	if (sentence.trim().length() > 0){
             		texts.add(sentence);
