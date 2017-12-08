@@ -16,7 +16,8 @@ public class FullyDiacritizedWordCheckTest {
 		
 		System.out.println("");
 		
-		assertEquals(true, FullyDiacritizedWordCheck.fullyDiacritized("عِلْمٍ"));//Tanween Kasr at m
+//		assertEquals(true, FullyDiacritizedWordCheck.fullyDiacritized("عِلْمٍ"));//Tanween Kasr at m
+		assertEquals(true, FullyDiacritizedWordCheck.fullyDiacritized("عَلِمْ"));
 
 		System.out.println("");
 		
