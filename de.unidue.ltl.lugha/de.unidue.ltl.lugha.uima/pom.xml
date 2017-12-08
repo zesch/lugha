@@ -45,6 +45,10 @@
   			</artifactId>
   			<version>1.8.0</version>
   		</dependency>
+  		<dependency>
+  			<groupId>de.unidue.ltl.lugha</groupId>
+  			<artifactId>de.unidue.ltl.lugha.core</artifactId>
+  		</dependency>
   	</dependencies>
   	
 </project>

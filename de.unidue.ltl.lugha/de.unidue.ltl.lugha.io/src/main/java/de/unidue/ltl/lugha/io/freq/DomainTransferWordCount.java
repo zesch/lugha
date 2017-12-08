@@ -24,6 +24,7 @@ import de.unidue.ltl.lugha.normalization.PunctuationRemover;
 import de.unidue.ltl.lugha.normalization.TextNormalizer;
 import de.unidue.ltl.lugha.transliteration.BuckwalterTransliterator;
 import de.unidue.ltl.lugha.transliteration.Transliterator;
+import de.unidue.ltl.lugha.uima.FarasaSegmenter;
 
 
 public class DomainTransferWordCount {
@@ -52,9 +53,12 @@ public class DomainTransferWordCount {
 						CorporaStatisitcsArabicReader.HAS_DIACRITICS, "Yes"
 	    		),
 	    		AnalysisEngineFactory.createEngine(
-						RegexTokenizer.class,
-						RegexTokenizer.PARAM_TOKEN_BOUNDARY_REGEX, " "
+						FarasaSegmenter.class
 				)
+//	    		AnalysisEngineFactory.createEngine(
+//						RegexTokenizer.class,
+//						RegexTokenizer.PARAM_TOKEN_BOUNDARY_REGEX, " "
+//				)
 	    );
         
         String[] roots = new String[]{"Elm", "*kr", "Eyn", "Zlm", "Eql", "$Er", "fjr", "nbE", "byt"};

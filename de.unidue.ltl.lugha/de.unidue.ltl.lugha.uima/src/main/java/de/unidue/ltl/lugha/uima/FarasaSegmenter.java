@@ -2,7 +2,11 @@ package de.unidue.ltl.lugha.uima;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.uima.UimaContext;
@@ -10,8 +14,12 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
+import org.ietf.jgss.Oid;
 
 import com.qcri.farasa.segmenter.Farasa;
+
+import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
+import de.unidue.ltl.lugha.core.DiacriticMarks;
 
 public class FarasaSegmenter 
 	extends JCasAnnotator_ImplBase
@@ -40,15 +48,91 @@ public class FarasaSegmenter
 	public void process(JCas jcas) throws AnalysisEngineProcessException {
 		
 		String originalString = jcas.getDocumentText();
+		Deque<String> originalQueue = new LinkedList<String>(Arrays.asList(originalString.split("")));
 		
 		List<String> segments = farasa.segmentLine(jcas.getDocumentText());
-		String segmentedString = StringUtils.join(segments, " ");
-		for (int i=0; i<segmentedString.length(); i++) {
-			System.out.println(segmentedString.substring(i, i+1));
+		String cleanedSegmentString = StringUtils.join(segments, " ").replaceAll("\\+", " ");
+		Deque<String> segmentQueue = new LinkedList<String>(Arrays.asList(cleanedSegmentString.split("")));
+		
+		
+		String sOrig = cleanString(originalQueue);
+		String sSeg = cleanString(segmentQueue);
+		
+		if (!sOrig.equals(sSeg)) {
+			System.out.println(sOrig);
+			System.out.println(sSeg);
+			System.out.println();
 		}
-		for (int i=0; i<originalString.length(); i++) {
-			System.out.println(originalString.substring(i, i+1));
+		
+		// add trailing space, so that last token gets added
+		originalQueue.addLast(" ");
+		segmentQueue.addLast(" ");
+
+		int startOffset = 0;
+		int endOffset = 0;
+		
+		while (!originalQueue.isEmpty()) {
+			String currentChar = originalQueue.poll();
+			
+			if (DiacriticMarks.isDiacritic(currentChar)) {
+				endOffset++;
+				continue;
+			}
+			
+			String segmentChar = segmentQueue.poll();
+			if (segmentChar == null) {
+				throw new RuntimeException("Segmented string unalignable with original version.");
+			}
+//			System.out.println(currentChar + " - " + segmentChar);
+			
+			if (!currentChar.equals(segmentChar)) {
+				// segment within original token
+				if (segmentChar.equals(" ")) {
+					Token token = new Token(jcas, startOffset, endOffset);
+					token.addToIndexes();
+					
+					// add original char back to queue
+					originalQueue.addFirst(currentChar);
+					startOffset = endOffset;
+					continue;
+				}
+//				else if (DiacriticMarks.isDiacritic(currentChar)) {
+//					// add segment char back to queue
+//					segmentQueue.addFirst(segmentChar);
+//					endOffset++;
+//					continue;
+//				}
+				else {
+//					throw new RuntimeException("Segmented string unalignable with original version.\n '" + originalString + "'\n'" + cleanedSegmentString + "'");					
+				}
+			}
+			
+			// original blank - add token
+			if (currentChar.equals(" ")) {
+				Token token = new Token(jcas, startOffset, endOffset);
+				token.addToIndexes();
+				endOffset++;
+				startOffset = endOffset;
+				continue;
+			}
+
+			endOffset++;
 		}
+	}
+	
+	private String cleanString(Deque<String> chSeq) {
+		StringBuilder sb = new StringBuilder();
+		for (String ch : chSeq) {
+			if (ch.equals(" ")) {
+				continue;
+			}
+			else if (DiacriticMarks.isDiacritic(ch)) {
+				continue;
+			}
+			
+			sb.append(ch);
+		}
+		return sb.toString();
 	}
 
 }

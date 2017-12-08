@@ -50,5 +50,13 @@ public class DiacriticMarks {
 	public static Set<String> getAdditionaldiacritics() {
 		return additionalDiacritics;
 	}
-		
+	
+	public static boolean isDiacritic(String text) {
+		if (text.length() > 1) {
+			return false;
+		}
+		else {
+			return getDiacritics().contains(text);
+		}
+	}	
 }

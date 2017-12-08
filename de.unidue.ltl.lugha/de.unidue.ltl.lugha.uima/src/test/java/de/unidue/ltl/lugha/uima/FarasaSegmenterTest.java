@@ -28,4 +28,23 @@ public class FarasaSegmenterTest {
 		}
 
 	}
+	
+	@Test
+	public void testFarasaSegmenterWithDiacritics()
+			throws Exception 
+	{
+
+//		JCas jcas = JCasFactory.createText("التَّرْبِيَةُ الْمِثَالِيَّةُ فِي الْقُرْآنِ الْكَرِيمِ");
+		JCas jcas = JCasFactory.createText("الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ");
+
+		SimplePipeline.runPipeline(jcas,
+				AnalysisEngineFactory.createEngineDescription(FarasaSegmenter.class)
+		);
+
+		for (Token t : JCasUtil.select(jcas, Token.class)) {
+			System.out.printf("[%s] ", t.getCoveredText());
+		}
+		System.out.println();
+
+	}
 }
