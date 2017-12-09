@@ -80,8 +80,13 @@ public class DomainTransferWordCount {
         String[] roots = new String[]{"Elm", "*kr", "Eyn", "Zlm", "Eql", "$Er", "fjr", "nbE", "byt"};
         
         for (String root : roots) {
-        	printDivider(root);
+        	printDivider(root, "full");
             printSet(cfd, root);
+        }
+        
+        for (String root : roots) {
+        	printDivider(root, "partial");
+            printSet(cfdPartial, root);
         }
         
         System.out.println();
@@ -161,8 +166,8 @@ public class DomainTransferWordCount {
 		}
 	}
 	
-	private void printDivider(String root) {
-        System.out.println("====== "+ root + " ===================");
+	private void printDivider(String root, String variant) {
+        System.out.println("====== "+ root + " (" + variant + ") ===================");
 	}
 	
 	private void printDistribution(ConditionalFrequencyDistribution<String, String> cfd, int sizeToPlot) {
