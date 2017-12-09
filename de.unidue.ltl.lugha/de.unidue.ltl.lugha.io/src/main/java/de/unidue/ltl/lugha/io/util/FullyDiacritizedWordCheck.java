@@ -46,7 +46,7 @@ public class FullyDiacritizedWordCheck {
 		}
 		String pattern = sb.toString().replaceAll("d+", "d");
 		
-		return pattern.matches("cd+");
+		return pattern.matches("(cd)+");
 	}
 	
 	
