@@ -14,6 +14,9 @@ public class CorpusFile {
 		String sourceFile = "";
 
 		switch (name) {
+		case WIKI:
+			sourceFile = DKPRO_HOME + "/data/seq/WikiNewsTruth.txt";// 1.18
+			break;
 		case QURAN:
 			sourceFile = DKPRO_HOME + "/data/seq/quran.txt";// 1.18
 			break;
