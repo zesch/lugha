@@ -72,7 +72,8 @@ public class MergeCorporaFiles {
 	 			CollectionReaderDescription reader = createReaderDescription(
 	 					TextReader.class,
 	 					ResourceCollectionReaderBase.PARAM_SOURCE_LOCATION, sourceFolder, 
-	 					ResourceCollectionReaderBase.PARAM_PATTERNS, "[+]*.html",
+//	 					ResourceCollectionReaderBase.PARAM_PATTERNS, "[+]*.html",
+	 					ResourceCollectionReaderBase.PARAM_PATTERNS, "[+]*.txt",
 	 					TextReader.PARAM_ENCODING, encoding);
 	 			
 	 			int sent = 1;
