@@ -14,20 +14,34 @@ public class CorpusFile {
 		String sourceFile = "";
 
 		switch (name) {
-		case WIKI:
-			sourceFile = DKPRO_HOME + "/data/seq/WikiNewsTruth.txt";// 1.18
+		case ALJAZEERA:
+			sourceFile = DKPRO_HOME + "/data/madamira/aljazeera.txt";
 			break;
+		case KACST:
+			sourceFile = DKPRO_HOME + "/data/madamira/KACST.txt";
+			break;
+		case KHALEEJ:
+			sourceFile = DKPRO_HOME + "/data/madamira/Khaleej.txt";
+			break;
+		case WATAN:
+			sourceFile = DKPRO_HOME + "/data/madamira/Watan.txt";
+			break;
+			
+		case WIKI:
+			sourceFile = DKPRO_HOME + "/data/farasa/WikiNewsTruth.txt";
+			break;
+		
 		case QURAN:
-			sourceFile = DKPRO_HOME + "/data/seq/quran.txt";// 1.18
+			sourceFile = DKPRO_HOME + "/data/gold/quran.txt";
 			break;
 		case RDI:
-			sourceFile = DKPRO_HOME + "/data/seq/rdi.txt";// 1.32
+			sourceFile = DKPRO_HOME + "/data/gold/rdi.txt";
 			break;
 		case Tashkeela11Books:
-			sourceFile = DKPRO_HOME + "/data/seq/11Books.txt";// 1.62
+			sourceFile = DKPRO_HOME + "/data/gold/11Books.txt";
 			break;
 		case TASHKEELA:
-			sourceFile = DKPRO_HOME + "/data/seq/tashkeela.txt";// 1.93
+			sourceFile = DKPRO_HOME + "/data/seq/tashkeela.txt";
 			break;
 		default:
 			throw new Exception("Unknown corpus: " + name);
