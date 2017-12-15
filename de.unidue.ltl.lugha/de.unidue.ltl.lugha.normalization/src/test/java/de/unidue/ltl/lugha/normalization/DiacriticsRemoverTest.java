@@ -53,5 +53,42 @@ public class DiacriticsRemoverTest {
 
 
 	}
+	
+	@Test
+	public void testDiacriticsRemoverTest() {
+		
+		assertEquals(false, DiacriticsRemover.hasCaseEndings("تقوم"));		
+//		System.out.println(DiacriticsRemover.lastLetterDiacritics("تقوم"));//empty
+		System.out.println(DiacriticsRemover.removeLastLetterDiacritics("تقوم"));
+
+				
+		assertEquals(false, DiacriticsRemover.hasCaseEndings("عِلْم"));
+//		System.out.println(DiacriticsRemover.lastLetterDiacritics("عِلْم"));//empty
+		System.out.println(DiacriticsRemover.lastLetterDiacritics("عِلْم"));//empty
+		
+		assertEquals(true, DiacriticsRemover.hasCaseEndings("بِسمِ"));//Kasra		
+//		System.out.println(DiacriticsRemover.lastLetterDiacritics("بِسمِ"));
+		System.out.println(DiacriticsRemover.removeLastLetterDiacritics("بِسمِ"));
+
+		assertEquals(true, DiacriticsRemover.hasCaseEndings("ذَكَرٌ"));//Damma		
+//		System.out.println(DiacriticsRemover.lastLetterDiacritics("ذَكَرٌ"));
+		System.out.println(DiacriticsRemover.removeLastLetterDiacritics("ذَكَرٌ"));
+
+		
+		assertEquals(true, DiacriticsRemover.hasCaseEndings("بَيَّتَ"));//Fatha		
+//		System.out.println(DiacriticsRemover.lastLetterDiacritics("بَيَّتَ"));
+		System.out.println(DiacriticsRemover.removeLastLetterDiacritics("بَيَّتَ"));
+
+		assertEquals(true, DiacriticsRemover.hasCaseEndings("عِلْمً"));//Fathataan		
+//		System.out.println(DiacriticsRemover.lastLetterDiacritics("عِلْمً"));
+		System.out.println(DiacriticsRemover.removeLastLetterDiacritics("عِلْمً")); 
+
+		assertEquals(true, DiacriticsRemover.hasCaseEndings("عَيَّنَّ"));//Fathataan		
+//		System.out.println(DiacriticsRemover.lastLetterDiacritics("عَيَّنَّ"));
+		System.out.println(DiacriticsRemover.removeLastLetterDiacritics("عَيَّنَّ")); 
+
+		
+	}
+
 
 }
