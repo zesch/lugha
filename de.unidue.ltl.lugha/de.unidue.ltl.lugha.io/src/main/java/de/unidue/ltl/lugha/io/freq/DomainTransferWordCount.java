@@ -18,6 +18,7 @@ import de.tudarmstadt.ukp.dkpro.core.api.frequency.util.ConditionalFrequencyDist
 import de.tudarmstadt.ukp.dkpro.core.api.frequency.util.FrequencyDistribution;
 import de.tudarmstadt.ukp.dkpro.core.api.resources.DkproContext;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
+import de.tudarmstadt.ukp.dkpro.core.tokit.RegexTokenizer;
 import de.unidue.ltl.lugha.io.util.FullyDiacritizedWordCheck;
 import de.unidue.ltl.lugha.normalization.DiacriticsRemover;
 import de.unidue.ltl.lugha.normalization.PunctuationRemover;
@@ -76,7 +77,9 @@ public class DomainTransferWordCount {
 //						RegexTokenizer.PARAM_TOKEN_BOUNDARY_REGEX, " "
 //				)
 	    );
-        
+
+//	      String[] roots = new String[]{"Elm"};
+//        String[] roots = new String[]{"Earabo", "AlEarabo"};
         String[] roots = new String[]{"Elm", "*kr", "Eyn", "Zlm", "Eql", "$Er", "fjr", "nbE", "byt"};
         
         for (String root : roots) {
@@ -127,7 +130,10 @@ public class DomainTransferWordCount {
 	            				PunctuationRemover.removePunctuation(
 	            						TextNormalizer.fullyNormalizeText(token.getCoveredText())));
 
-				// remove nunation
+				// Replace dager Alif
+//				word = DiacriticsRemover.replaceAdditionalDiacritics(word);
+
+	            // remove nunation
 				word = DiacriticsRemover.removeTanweenFath(word);
 				word = DiacriticsRemover.removeTanweenDamm(word);
 				word = DiacriticsRemover.removeTanweenKasr(word);
