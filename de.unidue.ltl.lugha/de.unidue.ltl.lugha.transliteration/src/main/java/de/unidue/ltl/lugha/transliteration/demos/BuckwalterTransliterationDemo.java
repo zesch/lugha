@@ -13,7 +13,7 @@ public class BuckwalterTransliterationDemo {
 	public static void main(String[] args) throws Exception{
 		
 //		System.out.println(showBuckwalterTransliteration("اتصل"));
-		;
+
 		List<String> list = null;
 		
 //		list = readFile("src/main/resources/A-D.txt");
