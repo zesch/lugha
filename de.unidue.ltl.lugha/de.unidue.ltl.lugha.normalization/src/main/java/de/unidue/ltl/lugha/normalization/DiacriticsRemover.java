@@ -145,6 +145,57 @@ public class DiacriticsRemover {
 		return sb.toString();
 
 	}
+	
+	public static String lastLetterDiacritics(String text) {
+		
+		for(String diac : DiacriticMarks.getDiacritics()){
+			
+			if (text.endsWith(diac)){
+				return diac;
+			}
+		}
+		
+		return "";
+		
+	}
+	
+	public static boolean hasCaseEndings(String text) {
+		
+		for(String diac : DiacriticMarks.getDiacritics()){
+			
+			if (text.endsWith(diac)){
+				return true;
+			}
+		}
+		
+		return false;
+		
+	}
+
+	/**
+	 * To remove last letter diacritics (case-endings), sometimes the last letter has 2 diacritics (one of them is Shadda), this is why it is recursive method
+	 * @param text
+	 * @return
+	 */
+	public static String removeLastLetterDiacritics(String text) {
+		
+		String normalizedWord = TextNormalizer.normalizeText(text);
+
+		
+        String str = "";
+        
+		if(hasCaseEndings(normalizedWord)){
+			
+			return removeLastLetterDiacritics  (normalizedWord.substring(0,normalizedWord.length()-1));
+			
+		}
+		
+//		System.out.println("-->: "+ normalizedWord);
+
+		return str;
+
+	}
+
 
 
 }
