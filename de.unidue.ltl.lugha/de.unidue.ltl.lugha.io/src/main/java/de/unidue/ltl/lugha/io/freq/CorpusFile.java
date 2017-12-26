@@ -26,19 +26,20 @@ public class CorpusFile {
 		case WATAN:
 			sourceFile = DKPRO_HOME + "/data/madamira/Watan.txt";
 			break;
-			
+		case TWEETS:
+			sourceFile = DKPRO_HOME + "/data/farasa/Tweets.txt";
+			break;			
 		case WIKI:
-			sourceFile = DKPRO_HOME + "/data/farasa/WikiNewsTruth.txt";
-			break;
-		
+			sourceFile = DKPRO_HOME + "/data/seq/WikiNewsTruth.txt";
+			break;		
 		case QURAN:
-			sourceFile = DKPRO_HOME + "/data/gold/quran.txt";
+			sourceFile = DKPRO_HOME + "/data/seq/quran.txt";
 			break;
 		case RDI:
-			sourceFile = DKPRO_HOME + "/data/gold/rdi.txt";
+			sourceFile = DKPRO_HOME + "/data/seq/rdi.txt";
 			break;
 		case Tashkeela11Books:
-			sourceFile = DKPRO_HOME + "/data/gold/11Books.txt";
+			sourceFile = DKPRO_HOME + "/data/seq/11Books.txt";
 			break;
 		case TASHKEELA:
 			sourceFile = DKPRO_HOME + "/data/seq/tashkeela.txt";
