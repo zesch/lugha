@@ -15,16 +15,16 @@ public class CorpusFile {
 
 		switch (name) {
 		case ALJAZEERA:
-			sourceFile = DKPRO_HOME + "/data/madamira/aljazeera.txt";
+			sourceFile = DKPRO_HOME + "/data/farasa/aljazeera.txt";
 			break;
 		case KACST:
-			sourceFile = DKPRO_HOME + "/data/madamira/KACST.txt";
+			sourceFile = DKPRO_HOME + "/data/farasa/KACST.txt";
 			break;
 		case KHALEEJ:
-			sourceFile = DKPRO_HOME + "/data/madamira/Khaleej.txt";
+			sourceFile = DKPRO_HOME + "/data/farasa/Khaleej.txt";
 			break;
 		case WATAN:
-			sourceFile = DKPRO_HOME + "/data/madamira/Watan.txt";
+			sourceFile = DKPRO_HOME + "/data/farasa/Watan.txt";
 			break;
 		case TWEETS:
 			sourceFile = DKPRO_HOME + "/data/farasa/Tweets.txt";
@@ -36,7 +36,7 @@ public class CorpusFile {
 			sourceFile = DKPRO_HOME + "/data/seq/quran.txt";
 			break;
 		case RDI:
-			sourceFile = DKPRO_HOME + "/data/seq/rdi.txt";
+			sourceFile = DKPRO_HOME + "/data/gold/rdi.txt";
 			break;
 		case Tashkeela11Books:
 			sourceFile = DKPRO_HOME + "/data/seq/11Books.txt";
