@@ -12,9 +12,9 @@ public class MergeCorporaFilesTest {
 //	public static final String targetFileUri = "src/test/resources/seq/seq.txt";
 //	public static final String sourceFolder = "src/test/resources/ar/rdim";
 
-	public static final String targetFileUri = "src/test/seq/KACST.txt";
+	public static final String targetFileUri = "src/test/seq/WikiNewsTruth-non.txt";
 	
-	public static final String sourceFolder = "/Users/ltl2014lf/Downloads/main-paper/Arabic-Newspapers";
+	public static final String sourceFolder = "/Users/ltl2014lf/Downloads/main-paper/wiki";
 
 	@Test
 	public void testMergeCorporaFiles() throws Exception {
@@ -25,7 +25,7 @@ public class MergeCorporaFilesTest {
 //		ucf.constructNewFile(true, false);
 		
 		//MADAMIRA sentences in xml format
-		ucf.constructNewFile(true, false);//default false
+		ucf.constructNewFile(true, false);//default xml false
 		
 		File file = new File(targetFileUri);
 		boolean found = file.exists();
@@ -33,7 +33,7 @@ public class MergeCorporaFilesTest {
 		 
 		if(found)
         {
-           System.out.println("================================+++File already exist!!!+++================================");
+           System.out.println("================================+++File created!!!+++================================");
            
         }
 		

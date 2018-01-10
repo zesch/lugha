@@ -16,6 +16,7 @@ import org.apache.uima.resource.ResourceInitializationException;
 import de.tudarmstadt.ukp.dkpro.core.api.io.ResourceCollectionReaderBase;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
+import de.unidue.ltl.lugha.normalization.DiacriticsRemover;
 
 public class MergeCorporaFiles {
 	
@@ -55,7 +56,7 @@ public class MergeCorporaFiles {
 		System.out.println("URI          : " + aMetaData.getDocumentUri());
 	}
 
-	public void constructNewFile(boolean isLine, boolean isXML) throws ResourceInitializationException,
+	public void constructNewFile(boolean isOneLine, boolean isXML) throws ResourceInitializationException,
 			IOException {
 
 		try {
@@ -77,14 +78,19 @@ public class MergeCorporaFiles {
 	 					TextReader.PARAM_ENCODING, encoding);
 	 			
 	 			int sent = 1;
+	 			
 	 			for (JCas jcas : new JCasIterable(reader)) {
 
 	 				DocumentMetaData md = DocumentMetaData.get(jcas);
 	 				dumpMetaData(md);
 	 				
-	 				String doc = jcas.getDocumentText();
 	 				
-	 				if (isLine) {
+	 				String doc = DiacriticsRemover.removeDiacritics(jcas.getDocumentText());
+	 				
+	 				System.out.println(doc);
+
+	 				
+	 				if (isOneLine) {
 	 					if(isXML){
 	 						for (String sentence : doc.split("\n"))
 	 							writeToFile("<in_seg id=\"SENT" + sent++ +"\">"+sentence+"</in_seg>");
