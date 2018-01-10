@@ -1,8 +1,10 @@
 package de.unidue.ltl.lugha.io.freq;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.uima.analysis_engine.AnalysisEngine;
@@ -38,6 +40,7 @@ public class DomainTransferWordCount {
 
 	private ConditionalFrequencyDistribution<String,String> cfd;
 	private ConditionalFrequencyDistribution<String,String> cfdPartial;
+	private FrequencyDistribution<String> fd;
 
 	public static void main(String[] args) 
 			throws Exception
@@ -50,14 +53,16 @@ public class DomainTransferWordCount {
 		buckwalter = new BuckwalterTransliterator();
 		cfd = new ConditionalFrequencyDistribution<String, String>();
 		cfdPartial = new ConditionalFrequencyDistribution<String, String>();
+		fd = new FrequencyDistribution<String>();
 	}
 		
 	public void analyze() 
 		throws Exception
 	{
-//		String corpusFile = CorpusFile.getCorpusPath(CorpusName.Tashkeela11Books);
-
-		String corpusFile = DkproContext.getContext().getWorkspace("corpora").getAbsolutePath() + "/arabic/tashkeela.txt";
+		String corpusFile = CorpusFile.getCorpusPath(CorpusName.WIKI);
+		System.out.println("Corpus Name: "+corpusFile);
+		
+//		String corpusFile = DkproContext.getContext().getWorkspace("corpora").getAbsolutePath() + "/arabic/tashkeela.txt";
 //		String corpusFile = DkproContext.getContext().getWorkspace("corpora").getAbsolutePath() + "/arabic/quran.txt";
 //		String corpusFile = DkproContext.getContext().getWorkspace("corpora").getAbsolutePath() + "/arabic/rdi.txt";
 //		String corpusFile = DkproContext.getContext().getWorkspace("corpora").getAbsolutePath() + "/arabic/WikiNewsTruth.txt";
@@ -78,10 +83,18 @@ public class DomainTransferWordCount {
 //				)
 	    );
 
-//	      String[] roots = new String[]{"Elm"};
+//	      String[] roots = new String[]{"byt"};//Elm, Eqd,*kr 
+	      String[] roots = new String[]{"*kr"};
 //        String[] roots = new String[]{"Earabo", "AlEarabo"};
-        String[] roots = new String[]{"Elm", "*kr", "Eyn", "Zlm", "Eql", "$Er", "fjr", "nbE", "byt"};
+//        String[] roots = new String[]{"Elm", "*kr", "Eyn", "Zlm", "Eql", "$Er", "fjr", "nbE", "byt"};
         
+
+	    System.out.println("===============Top 21===============");
+        for (String item : fd.getMostFrequentSamples(21)) {
+        	System.out.println("  " + item);
+        }
+	    
+	        
         for (String root : roots) {
         	printDivider(root, "full");
             printSet(cfd, root);
@@ -94,7 +107,7 @@ public class DomainTransferWordCount {
         
         System.out.println();
         
-        // plot ambiguity
+        // plot fully-diacritized ambiguity
         FrequencyDistribution<Integer> ambiguity = new FrequencyDistribution<Integer>();
         for (String root : cfd.getConditions()) {
         	ambiguity.inc(cfd.getFrequencyDistribution(root).getKeys().size());
@@ -104,16 +117,31 @@ public class DomainTransferWordCount {
         for (Integer level : levels) {
         	System.out.println(level + " : " + ambiguity.getCount(level));
         }
-        
         int[] sizes = new int[]{15,16,17,18,19,20,55};
         for (int size : sizes) {
         	printDistribution(cfd, size);
         }
+        
+        // plot partially-diacritized ambiguity
+//        FrequencyDistribution<Integer> partialAmbiguity = new FrequencyDistribution<Integer>();
+//        for (String root : cfdPartial.getConditions()) {
+//        	partialAmbiguity.inc(cfdPartial.getFrequencyDistribution(root).getKeys().size());
+//        }
+//        List<Integer> partialLevels = new ArrayList<Integer>(partialAmbiguity.getKeys());
+//        Collections.sort(partialLevels);
+//        for (Integer level : partialLevels) {
+//        	System.out.println(level + " : " + partialAmbiguity.getCount(level));
+//        }
+//
+//        int[] partSizes = new int[]{15,16,17,18,19,20,55};
+//        for (int size : partSizes) {
+//        	printDistribution(cfdPartial, size);
+//        }
 
     }
 	
 	private void initializeCFD(CollectionReaderDescription reader, AnalysisEngine tokenizer)
-			throws AnalysisEngineProcessException
+			throws AnalysisEngineProcessException, IOException
 	{
 
 	    int wordCount = 0;
@@ -145,13 +173,22 @@ public class DomainTransferWordCount {
 				
 				String root = DiacriticsRemover.removeDiacritics(word);
 			
+				Set<String> stopWordsSet = StopWords.getArabciStopWords();
+				
 				String readableRoot = buckwalter.getLatinString(root);
 				
 				if (FullyDiacritizedWordCheck.isFullyDiacritized(word)) {
-					cfd.inc(readableRoot, word);
+					cfd.inc(readableRoot, word);//I have to include this only
+					
+					if( stopWordsSet.contains(root) == false && root.trim().length() >=2 )
+						fd.inc(word);
 				}
 				else {
 					cfdPartial.inc(readableRoot, word);
+					
+					if( stopWordsSet.contains(root) == false && root.trim().length() >=2)
+//						fd.inc(word);
+					
 					partialCount++;
 				}	
 			}
@@ -166,9 +203,12 @@ public class DomainTransferWordCount {
 	private void printSet(ConditionalFrequencyDistribution<String, String> cfd, String root) {
 		if (cfd.hasCondition(root)) {
 	        FrequencyDistribution<String> fd = cfd.getFrequencyDistribution(root);
+	        int sum = 0;
 	        for(String key : fd.getKeys()){
+	        	sum += fd.getCount(key);
 				System.out.println(key + " : " + LTR + fd.getCount(key) + " - " + buckwalter.getLatinString(key));
-			}			
+			}
+	        System.out.println("Total = "+ sum);
 		}
 	}
 	
