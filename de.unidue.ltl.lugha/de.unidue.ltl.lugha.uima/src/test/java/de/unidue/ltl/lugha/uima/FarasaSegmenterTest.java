@@ -17,8 +17,11 @@ public class FarasaSegmenterTest {
 			throws Exception 
 	{
 
+//		String str = "فَليُذْكَروا اللَّهَ عِنْدَ المَشْعَرِ الحَرامِ";
 		JCas jcas = JCasFactory.createText("النص المراد معالجته");
+//		JCas jcas = JCasFactory.createText(str);
 
+		
 		SimplePipeline.runPipeline(jcas,
 				AnalysisEngineFactory.createEngineDescription(FarasaSegmenter.class)
 		);
