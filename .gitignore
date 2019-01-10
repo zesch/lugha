@@ -7,3 +7,4 @@
 **/.DS_Store
 **/*.synctex.gz
 /.project
+target/
