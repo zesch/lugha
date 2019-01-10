@@ -50,10 +50,5 @@
   <groupId>org.tukaani</groupId>
   <artifactId>xz</artifactId>
 </dependency>
-  	<dependency>
-  		<groupId>org.dkpro.tc</groupId>
-  		<artifactId>dkpro-tc-api</artifactId>
-  		<version>1.0.2</version>
-  	</dependency>
 	</dependencies>
 </project>

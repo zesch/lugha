@@ -28,9 +28,6 @@ public class FullyDiacritizedWordCheck {
 		
 		token = token.trim();
 		
-		System.out.println("'" + token + "'");
-		System.out.println(token.length());
-		
 		// cannot be fully diacritized, if it contains only one character
 		if (token.length() < 2) {
 			return false;
@@ -65,28 +62,4 @@ public class FullyDiacritizedWordCheck {
 		
 		return pattern.matches("(cd)+");
 	}
-	
-	
-//	public static boolean isFullyDiacritized(String token) {
-//		
-//		boolean hasDiacritics = false;
-//		
-//		for (int i=0; i<token.length(); i++) {
-//			String ch = token.substring(i, i+1);
-//			
-//			if (DiacriticMarks.getDiacritics().contains(ch)) {
-//				hasDiacritics = true;
-//			}
-//			else {
-//				if (!hasDiacritics) {
-//					return false;
-//				}
-//				
-//				// as we have seen a new character, clear the diacritics flag
-//				hasDiacritics = false;
-//			}
-//		}
-//		
-//		return true;
-//	}
 }

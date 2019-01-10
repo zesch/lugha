@@ -27,18 +27,12 @@ public class PunctuationRemoverTest {
 	public void punctuationRemoverTest() {
 		
     	String withPunc = "المسلم أن ينمي مقدرته ومواهبه وقوته، وأن يعطي من خلال عمله على أفضل وجه، وعلى أحسن حال";
-    	
     	String withoutPunc = PunctuationRemover.removePunctuation(withPunc);
-    	
 		assertEquals("المسلم أن ينمي مقدرته ومواهبه وقوته وأن يعطي من خلال عمله على أفضل وجه وعلى أحسن حال", withoutPunc);
 
-		
 		String str = "وقوته،";
-		
 		int count = PunctuationRemover.hasPunctuation(str);
-		
 		assertEquals(1, count);
-
 	}
 
 }

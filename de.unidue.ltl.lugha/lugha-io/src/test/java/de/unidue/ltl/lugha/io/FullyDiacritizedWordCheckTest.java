@@ -17,7 +17,6 @@
  ******************************************************************************/
 package de.unidue.ltl.lugha.io;
 
-
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
@@ -29,57 +28,41 @@ import org.junit.Test;
 import de.unidue.ltl.lugha.io.util.FullyDiacritizedWordCheck;
 import de.unidue.ltl.lugha.normalization.TextNormalizer;
 
-public class FullyDiacritizedWordCheckTest {
-	
-	public static final String SOURCE_FOLDER = "/scr/test/seq/count.txt";
-	
+public class FullyDiacritizedWordCheckTest
+{
 
-	@Test
-	public void testFullyDiacritizedWordCheck2() throws Exception {
-				
-		assertEquals(false, FullyDiacritizedWordCheck.isFullyDiacritized("ذُكِر"));		
-		System.out.println("");
-		
-		assertEquals(true, FullyDiacritizedWordCheck.isFullyDiacritized("ذَكَّرَ"));
-		System.out.println("");
-		
-		assertEquals(true, FullyDiacritizedWordCheck.isFullyDiacritized("ذَكَرٌ"));
-		System.out.println("");
-		
-		assertEquals(true, FullyDiacritizedWordCheck.isFullyDiacritized("ذَكَرٌ"));
-		System.out.println("");		
-		
-		assertEquals(true, FullyDiacritizedWordCheck.isFullyDiacritized("عَقْلٍ"));//Tanween Kasr at l
-		
-	}
-	
-	@Test
-	public void testFullyDiacritizedWordCheckCounts() throws Exception {
-		
-		 List<String> list = FileUtils.readLines(new File("src/main/resources/corpora/count.txt"), "utf-8");
-				 
-		 System.out.println("Size: "+list.size());
-		 
-		 int count = 0;
-		 
-		 for(String line: list){
-			
-//			 System.out.println("Sentence: "+line);
-			 String normalized = TextNormalizer.fullyNormalizeText(line);
-			 System.out.println("Normalized Sentence: " + TextNormalizer.fullyNormalizeText(line));
-			 
-			 for(String token : normalized.split(" ")){
-				 if(FullyDiacritizedWordCheck.isFullyDiacritized(token))
-					 count++;
-			 }
-			 
-		 }
-		 
-		 System.out.println("Diacritized words count :: "+count);
-		 
-		 assertEquals(13, count);
-		 
-	}
-		
+    @Test
+    public void testFullyDiacritizedWordCheck2() throws Exception
+    {
+
+        assertEquals(false, FullyDiacritizedWordCheck.isFullyDiacritized("ذُكِر"));
+        assertEquals(true, FullyDiacritizedWordCheck.isFullyDiacritized("ذَكَّرَ"));
+        assertEquals(true, FullyDiacritizedWordCheck.isFullyDiacritized("ذَكَرٌ"));
+        assertEquals(true, FullyDiacritizedWordCheck.isFullyDiacritized("ذَكَرٌ"));
+        assertEquals(true, FullyDiacritizedWordCheck.isFullyDiacritized("عَقْلٍ"));// Tanween Kasr
+                                                                                   // at l
+
+    }
+
+    @Test
+    public void testFullyDiacritizedWordCheckCounts() throws Exception
+    {
+
+        List<String> list = FileUtils.readLines(new File("src/main/resources/corpora/count.txt"),
+                "utf-8");
+        int count = 0;
+
+        for (String line : list) {
+            String normalized = TextNormalizer.fullyNormalizeText(line);
+            System.out.println("Normalized Sentence: " + normalized);
+
+            for (String token : normalized.split(" ")) {
+                if (FullyDiacritizedWordCheck.isFullyDiacritized(token))
+                    count++;
+            }
+
+        }
+        assertEquals(13, count);
+    }
 
 }

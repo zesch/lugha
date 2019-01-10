@@ -27,9 +27,6 @@ import org.apache.commons.io.FileUtils;
 
 public class StopWords {
 
-	public static void main(String[] args) throws IOException {
-
-	}
 	
 	public static Set<String> getArabciStopWords() throws IOException {
 		
