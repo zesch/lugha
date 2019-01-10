@@ -21,7 +21,7 @@ import org.apache.commons.collections.BidiMap;
 import org.apache.commons.collections.bidimap.DualHashBidiMap;
 import org.apache.commons.collections.bidimap.UnmodifiableBidiMap;
 
-/**
+/*
  * Transliteration following the Buckwalter method
  * @web: http://languagelog.ldc.upenn.edu/myl/ldc/morph/buckwalter.html
  * 

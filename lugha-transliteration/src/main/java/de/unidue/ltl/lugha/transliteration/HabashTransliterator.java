@@ -21,7 +21,7 @@ import org.apache.commons.collections.BidiMap;
 import org.apache.commons.collections.bidimap.DualHashBidiMap;
 import org.apache.commons.collections.bidimap.UnmodifiableBidiMap;
 
-/**
+/*
  * 
  * Transliteration following the Habash et al. method
  * @web: http://nizarhabash.com/publications/chapter2BisHabash_et_al-2007-web.pdf
