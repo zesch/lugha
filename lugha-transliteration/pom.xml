@@ -25,16 +25,12 @@
   <artifactId>lugha-transliteration</artifactId>
   <dependencies>
   	<dependency>
-  		<groupId>de.unidue.ltl.lugha</groupId>
-  		<artifactId>lugha-normalization</artifactId>
-  	</dependency>
-  	<dependency>
-  		<groupId>de.unidue.ltl.lugha</groupId>
-  		<artifactId>lugha-core</artifactId>
-  	</dependency>
-  	<dependency>
   		<groupId>commons-collections</groupId>
   		<artifactId>commons-collections</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
   	</dependency>
   </dependencies>
 </project>
