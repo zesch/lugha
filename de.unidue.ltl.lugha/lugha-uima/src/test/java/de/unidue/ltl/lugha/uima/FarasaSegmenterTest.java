@@ -1,5 +1,10 @@
 package de.unidue.ltl.lugha.uima;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.factory.JCasFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
@@ -17,18 +22,26 @@ public class FarasaSegmenterTest {
 			throws Exception 
 	{
 
-//		String str = "فَليُذْكَروا اللَّهَ عِنْدَ المَشْعَرِ الحَرامِ";
 		JCas jcas = JCasFactory.createText("النص المراد معالجته");
-//		JCas jcas = JCasFactory.createText(str);
 
-		
 		SimplePipeline.runPipeline(jcas,
 				AnalysisEngineFactory.createEngineDescription(FarasaSegmenter.class)
 		);
 
+		List<String> tokens = new ArrayList<>();
 		for (Token t : JCasUtil.select(jcas, Token.class)) {
-			System.out.printf("[%s] ", t.getCoveredText());
+		    String s = t.getCoveredText();
+		    tokens.add(s);
 		}
+		
+		assertEquals(7, tokens.size());
+		assertEquals("ال", tokens.get(0));
+		assertEquals("نص", tokens.get(1));
+		assertEquals("ال", tokens.get(2));
+		assertEquals("مراد", tokens.get(3));
+		assertEquals("معالج", tokens.get(4));
+		assertEquals("ت", tokens.get(5));
+		assertEquals("ه", tokens.get(6));
 
 	}
 	
@@ -37,20 +50,25 @@ public class FarasaSegmenterTest {
 			throws Exception 
 	{
 
-//		JCas jcas = JCasFactory.createText("التَّرْبِيَةُ الْمِثَالِيَّةُ فِي الْقُرْآنِ الْكَرِيمِ");
-//		JCas jcas = JCasFactory.createText("الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ");
 		JCas jcas = JCasFactory.createText("الطبعة الأولى ، ");
-		 
-
 		
 		SimplePipeline.runPipeline(jcas,
 				AnalysisEngineFactory.createEngineDescription(FarasaSegmenter.class)
 		);
 
-		for (Token t : JCasUtil.select(jcas, Token.class)) {
-			System.out.printf("[%s] ", t.getCoveredText());
-		}
-		System.out.println();
+		List<String> tokens = new ArrayList<>();
+        for (Token t : JCasUtil.select(jcas, Token.class)) {
+            String s = t.getCoveredText();
+            tokens.add(s);
+        }
+        
+        assertEquals(6, tokens.size());
+        assertEquals("ال", tokens.get(0));
+        assertEquals("طبع", tokens.get(1));
+        assertEquals("ة", tokens.get(2));
+        assertEquals("ال", tokens.get(3));
+        assertEquals("أولى", tokens.get(4));
+        assertEquals("،", tokens.get(5));
 
 	}
 }

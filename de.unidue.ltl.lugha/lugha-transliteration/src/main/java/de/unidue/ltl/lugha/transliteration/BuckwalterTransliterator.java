@@ -29,12 +29,7 @@ import org.apache.commons.collections.bidimap.UnmodifiableBidiMap;
 public class BuckwalterTransliterator 
 	extends BidiMapTranslitator
 {
-	/**
-	 * bi-directional map for the 1-to-1 Buckwalter's transliteration
-	 */
-	private static final BidiMap unicodeMap;;
-	
-	static {
+    public BuckwalterTransliterator(){
 		
 		BidiMap map = new DualHashBidiMap();
 		
@@ -95,11 +90,6 @@ public class BuckwalterTransliterator
 		map.put("\u0670", "`");
 		map.put("\u0671", "{");
 		
-		unicodeMap = UnmodifiableBidiMap.decorate(map);
-	}
-
-	@Override
-	protected BidiMap getBidiMap() {
-		return unicodeMap;
+		this.map = UnmodifiableBidiMap.decorate(map);
 	}
 }

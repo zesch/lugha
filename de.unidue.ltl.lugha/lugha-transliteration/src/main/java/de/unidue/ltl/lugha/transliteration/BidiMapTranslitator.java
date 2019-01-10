@@ -27,8 +27,11 @@ import org.apache.commons.collections.BidiMap;
 public abstract class BidiMapTranslitator 
 	implements BidiTransliterator
 {
+    protected BidiMap map = null;
 
-	protected abstract BidiMap getBidiMap();
+	protected BidiMap getBidiMap() {
+	    return map;
+	}
 
 	public String getLatinString(String arabicString) {
 		StringBuilder sb = new StringBuilder();

@@ -31,9 +31,7 @@ public class HabashTransliterator
 	extends BidiMapTranslitator
 {
 
-	private static final BidiMap unicodeMap;
-	
-	static {
+	public HabashTransliterator() {
 				
 		BidiMap map = new  DualHashBidiMap();;
 		
@@ -98,12 +96,6 @@ public class HabashTransliterator
 //		map.put("\u0670", "`");
 //		map.put("\u0671", "{");
 		
-        unicodeMap = UnmodifiableBidiMap.decorate(map);
-        
-	}
-
-	@Override
-	protected BidiMap getBidiMap() {
-		return unicodeMap;
+        this.map = UnmodifiableBidiMap.decorate(map);
 	}
 }

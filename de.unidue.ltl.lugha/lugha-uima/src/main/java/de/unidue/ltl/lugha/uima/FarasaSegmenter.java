@@ -17,8 +17,6 @@
  ******************************************************************************/
 package de.unidue.ltl.lugha.uima;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
@@ -50,11 +48,7 @@ public class FarasaSegmenter
 		
 		try {
 			farasa = new Farasa();
-		} catch (FileNotFoundException e) {
-			throw new ResourceInitializationException(e);
-		} catch (ClassNotFoundException e) {
-			throw new ResourceInitializationException(e);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			throw new ResourceInitializationException(e);
 		}
 	}
@@ -69,15 +63,6 @@ public class FarasaSegmenter
 		String cleanedSegmentString = StringUtils.join(segments, " ").replaceAll("\\+", " ");
 		Deque<String> segmentQueue = new LinkedList<String>(Arrays.asList(cleanedSegmentString.split("")));
 		
-//		// check for differences in segmentation
-//		String sOrig = cleanString(originalQueue);
-//		String sSeg = cleanString(segmentQueue);
-//		
-//		if (!sOrig.equals(sSeg)) {
-//			System.out.println(sOrig);
-//			System.out.println(sSeg);
-//			System.out.println();
-//		}
 		
 		// add trailing space, so that last token gets added
 		originalQueue.addLast(" ");
@@ -129,20 +114,4 @@ public class FarasaSegmenter
 			endOffset++;
 		}
 	}
-	
-	private String cleanString(Deque<String> chSeq) {
-		StringBuilder sb = new StringBuilder();
-		for (String ch : chSeq) {
-			if (ch.equals(" ")) {
-				continue;
-			}
-			else if (DiacriticMarks.isDiacritic(ch)) {
-				continue;
-			}
-			
-			sb.append(ch);
-		}
-		return sb.toString();
-	}
-
 }
