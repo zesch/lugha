@@ -7,7 +7,7 @@
   <modules>
   	<module>lugha-io</module>
   	<module>lugha-transliteration</module>
-  	<module>lugha-uima</module>
+  	<module>lugha-seg-farasa</module>
   	<module>lugha-core</module>
   	<module>lugha-normalization</module>
   </modules>
@@ -37,7 +37,7 @@
   		</dependency>
   		<dependency>
   			<groupId>de.unidue.ltl.lugha</groupId>
-  			<artifactId>lugha-uima</artifactId>
+  			<artifactId>lugha-seg-farasa</artifactId>
   			<version>0.1.0-SNAPSHOT</version>
   		</dependency>
   		<dependency>
