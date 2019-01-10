@@ -1,0 +1,3 @@
+
+lugha-normalization
+Copyright 2011-2019
