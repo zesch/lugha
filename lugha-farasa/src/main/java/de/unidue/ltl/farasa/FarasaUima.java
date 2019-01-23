@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package de.unidue.ltl.lugha.uima;
+package de.unidue.ltl.farasa;
 
 import java.util.Arrays;
 import java.util.Deque;
@@ -34,7 +34,7 @@ import com.qcri.farasa.segmenter.Farasa;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.unidue.ltl.lugha.core.DiacriticMarks;
 
-public class FarasaSegmenter 
+public class FarasaUima 
 	extends JCasAnnotator_ImplBase
 {
 

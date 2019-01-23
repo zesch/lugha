@@ -1,8 +1,7 @@
-package de.unidue.ltl.lugha.uima;
+package de.unidue.ltl.farasa;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
@@ -15,7 +14,7 @@ import org.junit.Test;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 
 
-public class FarasaSegmenterTest {
+public class FarasaTest {
 
 	@Test
 	public void testFarasaSegmenter()
@@ -25,14 +24,10 @@ public class FarasaSegmenterTest {
 		JCas jcas = JCasFactory.createText("النص المراد معالجته");
 
 		SimplePipeline.runPipeline(jcas,
-				AnalysisEngineFactory.createEngineDescription(FarasaSegmenter.class)
+				AnalysisEngineFactory.createEngineDescription(FarasaUima.class)
 		);
 
-		List<String> tokens = new ArrayList<>();
-		for (Token t : JCasUtil.select(jcas, Token.class)) {
-		    String s = t.getCoveredText();
-		    tokens.add(s);
-		}
+		List<String> tokens = JCasUtil.toText(JCasUtil.select(jcas, Token.class));
 		
 		assertEquals(7, tokens.size());
 		assertEquals("ال", tokens.get(0));
@@ -53,14 +48,10 @@ public class FarasaSegmenterTest {
 		JCas jcas = JCasFactory.createText("الطبعة الأولى ، ");
 		
 		SimplePipeline.runPipeline(jcas,
-				AnalysisEngineFactory.createEngineDescription(FarasaSegmenter.class)
+				AnalysisEngineFactory.createEngineDescription(FarasaUima.class)
 		);
 
-		List<String> tokens = new ArrayList<>();
-        for (Token t : JCasUtil.select(jcas, Token.class)) {
-            String s = t.getCoveredText();
-            tokens.add(s);
-        }
+		List<String> tokens = JCasUtil.toText(JCasUtil.select(jcas, Token.class));
         
         assertEquals(6, tokens.size());
         assertEquals("ال", tokens.get(0));
