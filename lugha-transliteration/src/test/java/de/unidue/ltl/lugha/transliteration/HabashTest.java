@@ -32,7 +32,7 @@ public class HabashTest {
 	@Test
 	public void habashTest() {
 				
-		BidiTransliterator habash = new HabashTransliterator();
+	    Transliterator habash = new HabashTransliterator();
 		
 		String arabic = "اعطى الولد البنت كتابا ساءل امْرَأَتِي";
 		String latin = "AςTý Alwld Albnt ktAbA sA'l AmoraÂatiy";

@@ -28,7 +28,7 @@ import org.apache.commons.collections.bidimap.UnmodifiableBidiMap;
  * 
  */
 public class HabashTransliterator 
-	extends BidiMapTranslitator
+	extends Transliterator
 {
 
 	public HabashTransliterator() {

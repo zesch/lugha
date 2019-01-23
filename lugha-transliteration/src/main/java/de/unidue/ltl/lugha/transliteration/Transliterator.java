@@ -15,18 +15,55 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+
 package de.unidue.ltl.lugha.transliteration;
 
+import org.apache.commons.collections.BidiMap;
+
 /**
- * A transliterator takes an Arabic input string and converts it into a representation in the Latin alphabet.
+ * Abstract base class for bidimap based @BidiTransliterator 
  * 
  */
-public interface Transliterator {
-	
-	/**
-	 * @param arabicString a String with Arabic text
-	 * @return A transliterated version in the Latin alphabet
-	 */
-	public String getLatinString(String arabicString);
+public abstract class Transliterator 
+{
+    protected BidiMap map = null;
 
+	protected BidiMap getBidiMap() {
+	    return map;
+	}
+
+	public String getLatinString(String arabicString) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < arabicString.length(); i++)
+		{	
+			String unigram = arabicString.substring(i, i + 1);
+	
+			if (getBidiMap().containsKey(unigram) ) {
+				sb.append(getBidiMap().get(unigram));
+			}
+			else {	
+				sb.append(unigram);
+			}
+		}
+		
+		return sb.toString();
+		
+	}
+	
+	public String getArabicString(String latinString) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < latinString.length(); i++)
+		{	
+			String unigram = latinString.substring(i, i + 1);
+	
+			if (getBidiMap().containsValue(unigram) ) {
+				sb.append(getBidiMap().getKey(unigram));
+			}
+			else {	
+				sb.append(unigram);
+			}
+		}
+		
+		return sb.toString();
+	}
 }

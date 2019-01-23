@@ -26,8 +26,7 @@ import org.apache.commons.collections.bidimap.UnmodifiableBidiMap;
  * @web: http://languagelog.ldc.upenn.edu/myl/ldc/morph/buckwalter.html
  * 
  */
-public class BuckwalterTransliterator 
-	extends BidiMapTranslitator
+public class BuckwalterTransliterator extends Transliterator
 {
     public BuckwalterTransliterator(){
 		
