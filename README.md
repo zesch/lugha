@@ -1,2 +1,2 @@
-# lugha-tk
+# lugha
 Arabic Natural Language Processing Toolkit
