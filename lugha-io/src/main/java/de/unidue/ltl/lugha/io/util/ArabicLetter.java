@@ -29,7 +29,6 @@ public class ArabicLetter
 
     public ArabicLetter()
     {
-        super();
         diacritics = new ArrayList<ArabicDiacritic>();
     }
 
@@ -71,43 +70,37 @@ public class ArabicLetter
     public String getDiacriticsAr()
     {
 
-        String str = "";
+        StringBuilder sb = new StringBuilder();
 
         for (ArabicDiacritic obj : diacritics) {
-            str += obj.getDiacritic();
+            sb.append(obj.getDiacritic());
         }
 
-        return str;
+        return sb.toString();
 
     }
 
     public String getDiacriticsTransliterated()
     {
-
-        String str = "";
-
-        /**
-         * TODO:
-         */
+        StringBuilder sb = new StringBuilder();
 
         for (ArabicDiacritic obj : diacritics) {
 
-            // if (obj.getTransliteration().equals("*")) {
-            // str += "ð";
-            // }
             if (obj.getTransliteration().equals("~")) {
-                str += "B";
+                sb.append("B");
             }
             else {
-                str += obj.getTransliteration();
+                sb.append(obj.getTransliteration());
             }
         }
 
-        if (str.equals("")) {
-            str = "none";
+        String str = sb.toString();
+
+        if (str.isEmpty()) {
+            return "none";
         }
 
-        return str;
+        return sb.toString();
 
     }
 

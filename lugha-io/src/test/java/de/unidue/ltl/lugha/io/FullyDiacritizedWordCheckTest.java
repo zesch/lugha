@@ -34,14 +34,11 @@ public class FullyDiacritizedWordCheckTest
     @Test
     public void testFullyDiacritizedWordCheck2() throws Exception
     {
-
         assertEquals(false, FullyDiacritizedWordCheck.isFullyDiacritized("ذُكِر"));
         assertEquals(true, FullyDiacritizedWordCheck.isFullyDiacritized("ذَكَّرَ"));
         assertEquals(true, FullyDiacritizedWordCheck.isFullyDiacritized("ذَكَرٌ"));
         assertEquals(true, FullyDiacritizedWordCheck.isFullyDiacritized("ذَكَرٌ"));
         assertEquals(true, FullyDiacritizedWordCheck.isFullyDiacritized("عَقْلٍ"));// Tanween Kasr
-                                                                                   // at l
-
     }
 
     @Test

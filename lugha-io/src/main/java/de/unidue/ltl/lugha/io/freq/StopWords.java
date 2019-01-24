@@ -27,32 +27,25 @@ import org.apache.commons.io.FileUtils;
 
 public class StopWords {
 
-	
 	public static Set<String> getArabciStopWords() throws IOException {
 		
 		List<String> stopWords = FileUtils.readLines(new File("src/main/resources/corpora/stopwords.txt"), "utf-8");		
-
 		stopWords.addAll( FileUtils.readLines(new File("src/main/resources/corpora/stopwords-ar.txt"), "utf-8") );
 		
 		Set<String> stopWordsSet = new HashSet<String>();
 		
-		
-		for(String stopWord: stopWords)
+		for(String stopWord: stopWords) {
 			stopWordsSet.add(stopWord);
+		}
 
 		stopWordsSet.add("ال");
 		stopWordsSet.add("ات");
 		stopWordsSet.add("ون");
-		
 		stopWordsSet.add("الا");
 		stopWordsSet.add("إِلَّا");
-
 		stopWordsSet.add("إلا");
-
 		stopWordsSet.add("يا");
-
 		stopWordsSet.add("إنما");
-
 		stopWordsSet.add("أيها");
 		
 		return stopWordsSet;

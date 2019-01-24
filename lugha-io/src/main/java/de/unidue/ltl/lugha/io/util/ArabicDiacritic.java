@@ -25,7 +25,6 @@ public class ArabicDiacritic
 
     public ArabicDiacritic(String diacritic, String transliteration)
     {
-        super();
         this.diacritic = diacritic;
         this.transliteration = transliteration;
     }

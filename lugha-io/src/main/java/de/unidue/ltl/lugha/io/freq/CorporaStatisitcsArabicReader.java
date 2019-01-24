@@ -57,8 +57,8 @@ public class CorporaStatisitcsArabicReader
     private String sentencesFile;
 
     public static final String HAS_DIACRITICS = "HasDiacrtics";
-    @ConfigurationParameter(name = HAS_DIACRITICS, mandatory = true, defaultValue = "No")
-    private String hasDiacrtics;
+    @ConfigurationParameter(name = HAS_DIACRITICS, mandatory = true, defaultValue = "false")
+    private boolean hasDiacrtics;
 
     private List<String> texts;
 
@@ -75,15 +75,11 @@ public class CorporaStatisitcsArabicReader
         texts = new ArrayList<String>();
         try (InputStream is = ResourceUtils.resolveLocation(sentencesFile, this, context)
                 .openStream()) {
-
             for (String sentence : IOUtils.readLines(is, encoding)) {
-
                 sentence = TextNormalizer.fullyNormalizeText(sentence);
-
                 if (sentence.trim().length() > 0) {
                     texts.add(sentence);
                 }
-
             }
         }
         catch (IOException e) {
@@ -103,7 +99,7 @@ public class CorporaStatisitcsArabicReader
         String withDiacritics = TextNormalizer.normalizeText(texts.get(offset));
         String withoutDiacritics = DiacriticsRemover.removeDiacritics(withDiacritics);
 
-        if (hasDiacrtics.equals("No")) {
+        if (!hasDiacrtics) {
             aJCas.setDocumentText(withoutDiacritics);
         }
         else {

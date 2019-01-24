@@ -24,7 +24,7 @@ public class FarasaTest {
 		JCas jcas = JCasFactory.createText("النص المراد معالجته");
 
 		SimplePipeline.runPipeline(jcas,
-				AnalysisEngineFactory.createEngineDescription(FarasaUima.class)
+				AnalysisEngineFactory.createEngineDescription(FarasaAnnotator.class)
 		);
 
 		List<String> tokens = JCasUtil.toText(JCasUtil.select(jcas, Token.class));
@@ -48,7 +48,7 @@ public class FarasaTest {
 		JCas jcas = JCasFactory.createText("الطبعة الأولى ، ");
 		
 		SimplePipeline.runPipeline(jcas,
-				AnalysisEngineFactory.createEngineDescription(FarasaUima.class)
+				AnalysisEngineFactory.createEngineDescription(FarasaAnnotator.class)
 		);
 
 		List<String> tokens = JCasUtil.toText(JCasUtil.select(jcas, Token.class));

@@ -34,7 +34,7 @@ import com.qcri.farasa.segmenter.Farasa;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.unidue.ltl.lugha.core.DiacriticMarks;
 
-public class FarasaUima 
+public class FarasaAnnotator 
 	extends JCasAnnotator_ImplBase
 {
 

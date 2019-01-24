@@ -27,7 +27,6 @@ public class ArabicString
 {
 
     private List<ArabicLetter> letters;
-
     private Transliterator transliterator;
 
     public ArabicString(Transliterator transliterator)
@@ -72,13 +71,13 @@ public class ArabicString
             ArabicLetter letter = new ArabicLetter();
 
             if (DiacriticMarks.getDiacritics().contains(character)) {
-                this.addDiacriticForCurrentLetter(new ArabicDiacritic(character, transliterated));
+                addDiacriticForCurrentLetter(new ArabicDiacritic(character, transliterated));
             }
             else {
                 letter = new ArabicLetter();
                 letter.setLetter(character);
                 letter.setTransliteration(transliterated);
-                this.addLetter(letter);
+                addLetter(letter);
             }
         }
     }
